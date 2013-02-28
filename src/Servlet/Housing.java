@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * Time: 6:50 PM
  * To change this template use File | Settings | File Templates.
  */
+//housing stuff use this servlet to get housing information
 public class Housing extends HttpServlet
 {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
