@@ -1,29 +1,11 @@
 <%-- Created by IntelliJ IDEA. --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head><title>
+<head>
     my.neumont.edu
-</title><link rel="shortcut icon" href="/favicon.ico" /><link id="ctl00_Link1" type="text/css" rel="Stylesheet" href="/resources/student.css" />
-    <link type="text/css" rel="stylesheet" href="default.css" />
 </head>
 <body>
-<form name="aspnetForm" method="post" action="" id="aspnetForm">
-    <div>
-        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY1NDU2MTA1Mg9kFgJmD2QWAgIDD2QWBAICDxYCHgVzdHlsZQUtdGV4dC1hbGlnbjpjZW50ZXI7IHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7ZAIEDxYCHgdWaXNpYmxlaGRkqL+tO0vpXciMQEhc5ZTUe4O44Buw/vctYjs3aMrLUe8=" />
-    </div>
-    <div id="menu1">
-        <ul class="nav">
-            <li><a href="/">MY.NEUMONT.EDU</a> </li>
-        </ul>
-        <div style="float: right;">
-            <ul class="nav">
-                <li id="ctl00_htmLogout"><a href="/logout.aspx">LOGOUT (rzahm)</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <body>
-    <div id="mainContenthousing">
+    <div id="mainContentHousing">
         <form>
             1. What is your housing situation? <br>
             <input name="housing" type="radio" value="NeumontUniverstiyHousing"/>   <br>
