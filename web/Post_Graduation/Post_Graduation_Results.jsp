@@ -16,7 +16,7 @@
         <input type="submit" value="Print" />
     </form>
 
-    // TODO: The object here is to iterate over a model
+    // TODO: The objective here is to iterate over a model
     //       that has all the attributes that require being
     //       displayed on this results page, and constructing
     //       a table accordingly throughout said iterations.
