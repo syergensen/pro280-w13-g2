@@ -7,8 +7,7 @@ package Model;
  * Time: 6:50 PM
  * To change this template use File | Settings | File Templates.
  */
-//the backing model behind the housing servlet
-public class Housing
+public class HousingModel
 {
 
 }
