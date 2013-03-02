@@ -8,13 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>Post Graduation Aspirations</title>
 </head>
 <body>
     <form action="/PostGraduation" method="POST">
         <p>In order to provide more accurate results we would like to know more about your aspirations, things that you desire to have after graduation: </p>
         <p>
-            After graduating Neumont, what is your preferred region to live in the United States:
+            1.  After graduating Neumont, what is your preferred region to live in the United States:
             <select name="regionOption">
                 // TODO: JSTL loop to generate possible regions from model
             </select>
