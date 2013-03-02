@@ -21,7 +21,7 @@
             <input name="daysEatingDinner" type="text"/><br>
             <br>
             4. on average how much do you spend of video games per month  <br>
-            <input name="spentonvideogames" type="text" />  <br>
+            <input name="spentOnVideoGames" type="text" />  <br>
 
             <br>
             <input name="NextStep" type="submit" value="NextStep">

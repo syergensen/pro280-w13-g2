@@ -9,5 +9,5 @@ package Model;
  */
 public class HousingModel
 {
-
+    //this class will be used to get questions from the database to be printed on the screen
 }
