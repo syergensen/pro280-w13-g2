@@ -22,8 +22,8 @@
             <div id="startQrtResponse" align="left">
             	<form action="">
                 <select name="quarterStart">
-                <option value="summer">Summer Quarter</option> 
-                <option value="fall">Fall Quarter</option>
+                    <option value="summer">Summer Quarter</option>
+                    <option value="fall">Fall Quarter</option>
                 </select>
                 </form>
                 <!--Static values for now, will be filled in by database entries later-->
@@ -47,7 +47,7 @@
                 </form>
                 <c:if test="${checkbox.value == 1}">
                     <form action="">
-                    <select name="programSelect">
+                    <select name="extendedQuarter">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
