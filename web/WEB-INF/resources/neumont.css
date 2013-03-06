@@ -1,0 +1,45 @@
+div#menu1, div#footer
+{
+    padding: 0;
+    width: 980px;
+    margin: 0 auto;
+    border-top-width: 1px; /* 2010-08-31 pliska: Hate leaving this line here here but I'm on a deadline. If removed, the secondary nav bar becomes taller on some steps */
+    border-right-width: 0; /* see note above */
+    border-bottom-width: 0; /* see note above */
+    border-left-width: 0; /* see note above */
+    border-style: dashed; /* see note above */
+    border-color: transparent; /* see note above */
+}
+div#menu1
+{
+    height: 36px;
+}
+div#footer
+{
+    font-size: 12px;
+    color: #656565;
+    padding: 20px 0;
+}
+div#footer h3
+{
+    color: #CCC;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+div#ftr1
+{
+    float: left;
+    padding: 0 25px;
+}
+div#ftr1
+{
+    width: 750px;
+    border-right: 1px solid #656565;
+}
+div#footer
+{
+    width: 115px;
+}

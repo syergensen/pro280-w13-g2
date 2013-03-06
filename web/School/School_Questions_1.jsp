@@ -9,8 +9,11 @@
 <html>
 <head>
     <title>Jabberwocky</title>
+    <link rel="stylesheet" type="text/css"
+          href="${pageContext.request.contextPath}/resources/neumont.css" />
 </head>
 <body >
+    <jsp:include page="/Page_Template/header.jsp"/>
     <div align="center">
        <h1>Welcome to Project Jabberwocky</h1>
        <h2>Enrollment Section:</h2>
@@ -62,5 +65,7 @@
             </div>
       </div>
     </div>
+
+    <jsp:include page="/Page_Template/footer.jsp"/>
 </body>
 </html>
