@@ -11,6 +11,7 @@
     <title>Post Graduation Aspirations</title>
 </head>
 <body>
+    <jsp:include page="/Page_Template/header.jsp"/>
     <form action="/PostGraduation" method="POST">
         <p>In order to provide more accurate results we would like to know more about your aspirations, things that you desire to have after graduation: </p>
         <p>
@@ -37,5 +38,6 @@
         </p>
         <input type="submit" value="Results" />
     </form>
+    <jsp:include page="/Page_Template/footer.jsp"/>
 </body>
 </html>

@@ -1,10 +1,12 @@
 <%-- Created by IntelliJ IDEA. --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     my.neumont.edu
 </head>
 <body>
+    <jsp:include page="/Page_Template/header.jsp"/>
     <div id="mainContentHousing">
         <form>
             1. What is your housing situation? <br>
@@ -28,36 +30,6 @@
 
         </form>
     </div>
-    <div id="footer">
-        <div id="ftr1">
-            <h3>
-                UNITING BUSINESS, TECHNOLOGY AND CREATIVITY TO EDUCATE THE INNOVATORS OF TOMORROW</h3>
-            <p>
-                Neumont University was founded in 2002 and is an Accredited Member, ACICS. It was
-                established to pioneer a more effective way of learning and a better way to create
-                innovators in the computer sciences. Our mission is to provide a professionally-focused
-                education that is rich in ideas, current in industry best practices, and deep in
-                technological insight from the input of industry-leading partners. At our campus
-                in the Salt Lake valley, we offer accelerated Bachelor of Science in Computer Science
-                and Information Technology Operations Management; and Master of Science in Computer
-                Science degrees.</p>
-            <p>
-                &copy;
-                2013
-                NEUMONT UNIVERSITY. ALL RIGHTS RESERVED.<br>
-                SOUTH JORDAN CAMPUS &ndash; 10701 SOUTH RIVER FRONT PARKWAY, SUITE 300, SOUTH JORDAN,
-                UTAH 84095</p>
-            <p>
-                1-888-638-6668</p>
-        </div>
-        <div id="ftr2">
-            <h3>
-                Follow Us:</h3>
-            <p>
-                <a target="_blank" href="http://www.twitter.com/neumontU">
-                    <img alt="Twitter" src="/resources/twitter.jpg" title="Twitter"></a> &nbsp;<a target="_blank" href="http://www.facebook.com/neumontuniversity"><img alt="Facebook" src="/resources/facebook.jpg" title="Facebook"></a>
-                &nbsp;<a target="_blank" href="http://www.youtube.com/profile?user=stacyleeut"><img alt="YouTube" src="/resources/youtube.jpg" title="YouTube"></a></p>
-        </div>
-    </div>
+    <jsp:include page="/Page_Template/footer.jsp"/>
     </body>
 </html>

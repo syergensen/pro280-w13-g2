@@ -11,6 +11,7 @@
     <title></title>
 </head>
 <body>
+    <jsp:include page="/Page_Template/header.jsp"/>
     <table id="resultsLayoutTable">
         <tr>
             <td id="resultsLeftMargin">
@@ -31,5 +32,6 @@
             Discretionary Income:
         </tr>
     </table>
+    <jsp:include page="/Page_Template/footer.jsp"/>
 </body>
 </html>

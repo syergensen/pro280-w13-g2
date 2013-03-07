@@ -12,13 +12,16 @@ import javax.servlet.http.HttpSession;
  * Time: 1:05 PM
  * To change this template use File | Settings | File Templates.
  */
-public class SchoolEnrollment extends HttpServlet{
+public class SchoolEnrollment extends HttpServlet
+{
     //Class will be for generating duration of enrollment, also for calculating dates
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    {
         String startQuarter = request.getParameter("quarterStart");
         String programSelect = request.getParameter("programSelect");
         String extendedQuarter = request.getParameter("extendedQuarter");
-        if(extendedQuarter.equals("other")){
+        if(extendedQuarter.equals("other"))
+        {
             extendedQuarter = request.getParameter("extendedDuration");
         }
 
