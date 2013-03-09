@@ -11,8 +11,10 @@
     <title>Jabberwocky</title>
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/resources/neumont.css" />
+    <script language="JavaScript" type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
 <body>
+<jsp:include page="/Page_Template/dynamicLoanOOPBox.jsp"/>
 <jsp:include page="/Page_Template/header.jsp"/>
 <div align="center">
     <h1>Please continue answering.</h1>
@@ -30,17 +32,22 @@
         </div>
         <div id="programQuestion" align="left">5) What loans do you have?</div>
         <div id="programResponse" align="left">
-            Loan Amount:
             <form action="">
-                <select name="loanInput">
-                    <input type="number" name="loanAmount" value="0"/> Loan Interest:<input type="number" name="loanInterest" value="0"/> Finance Duration:<input type="number" name="payoffDuration" value="0"/> </br>
-                </select> <button type="button" onclick="">Add</button>
-                <%--Need java script to add in more inputs--%>
+                <div id="loanInfoContainer">
+                    <div id="loanInfo1">
+                        Loan Amount:<input type="number" name="loanAmount1" value="0"/>
+                        Loan Interest:<input type="number" name="loanInterest1" value="0"/>
+                        First Year Monthly Payment:<input type="number" name="firstYearMonthly1" value="0"/>
+                        Monthly Payment:<input type="number" name="monthlyPayment1" value="0"/></br>
+                    </div>
+                </div>
+                <input type="button" value="Add Loan"id="addLoanButton"/>
+                <input type="button" value="Remove Loan"id="removeLoanButton"/>
             </form></br>
-            Out of Pocket Amount:<form action="">
-                <select name="oOPInput">
-                   <input type="number" name="oOPAmount" value="0"/>
-                </select> <button type="button" onclick="">Add</button>
+            <form action="">
+                <div id="oOPInfoContainer">
+                        Out of Pocket Amount:<input type="number" name="oOPAmount" value="0"/>
+                </div>
             </form>
         </div>
     </div>
