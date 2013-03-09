@@ -42,30 +42,51 @@
             </div>
             <div id="extendedQuestion" align="left">3) Will you be staying extra quarters</div>
             <div id="extendedResponse" align="left">
-            	<form action="">
-                	<input type="checkbox" name="extendedStay" value="1">Yes</input>
-                </form>
-                <c:if test="${checkbox.value == 1}">
-                    <form action="">
-                    <select name="extendedQuarter">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="-1">Other</option>
-                    </select>
-                    </form>
-                    <c:if test="${programSelect.value == -1}">
-                        Please input how long you will be staying:
-                        <input type="number" name="extendedDuration"/>
-                    </c:if>
-                </c:if>
-                <!--Static values for now, will be filled in by database entries later-->
+               <form action="">
+                   <div name="extendedStayResponses">
+                       <input type="checkbox" name="extendedStay" id="extendedStay"/>Yes
+                   </div>
+                   <div id="extendedQuarter" style="display:none">
+                       <select name="extraQuarters" selected="1">
+                           <option value="1">1</option>
+                           <option value="2">2</option>
+                           <option value="3">3</option>
+                           <option value="4">4</option>
+                           <option value="5">5</option>
+                           <option value="6">6</option>
+                           <option value="7">7</option>
+                           <option value="8">8</option>
+                           <option value="9">9</option>
+                           <option value="10">10</option>
+                       </select>
+                   </div>
+               </form>
             </div>
       </div>
     </div>
-
     <jsp:include page="/Page_Template/footer.jsp"/>
 </body>
 </html>
+
+<%--<div id="extendedResponse" align="left">--%>
+<%--<form action="">--%>
+<%--<input type="checkbox" name="extendedStay" value="1">Yes</input>--%>
+<%--</form>--%>
+<%--<c:if test="${checkbox.value == 1}">--%>
+<%--<form action="">--%>
+<%--<select name="extendedQuarter">--%>
+<%--<option value="1">1</option>--%>
+<%--<option value="2">2</option>--%>
+<%--<option value="3">3</option>--%>
+<%--<option value="4">4</option>--%>
+<%--<option value="5">5</option>--%>
+<%--<option value="-1">Other</option>--%>
+<%--</select>--%>
+<%--</form>--%>
+<%--<c:if test="${programSelect.value == -1}">--%>
+<%--Please input how long you will be staying:--%>
+<%--<input type="number" name="extendedDuration"/>--%>
+<%--</c:if>--%>
+<%--</c:if>--%>
+<%--<!--Static values for now, will be filled in by database entries later-->--%>
+<%--</div>--%>
