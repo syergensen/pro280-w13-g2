@@ -1,5 +1,6 @@
 package Servlet;
 
+import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 /**
@@ -9,6 +10,7 @@ import java.io.IOException;
  * Time: 6:43 PM
  * To change this template use File | Settings | File Templates.
  */
+@WebServlet(name = "Login", urlPatterns = "/Login")
 public class Login extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
 
