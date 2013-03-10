@@ -11,8 +11,10 @@
     <title>Jabberwocky</title>
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/resources/neumont.css" />
+    <script language="JavaScript" type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
 <body >
+    <jsp:include page="/Page_Template/dynamicExtendedStay.jsp"/>
     <jsp:include page="/Page_Template/header.jsp"/>
     <div align="center">
        <h1>Welcome to Project Jabberwocky</h1>
@@ -67,26 +69,3 @@
     <jsp:include page="/Page_Template/footer.jsp"/>
 </body>
 </html>
-
-<%--<div id="extendedResponse" align="left">--%>
-<%--<form action="">--%>
-<%--<input type="checkbox" name="extendedStay" value="1">Yes</input>--%>
-<%--</form>--%>
-<%--<c:if test="${checkbox.value == 1}">--%>
-<%--<form action="">--%>
-<%--<select name="extendedQuarter">--%>
-<%--<option value="1">1</option>--%>
-<%--<option value="2">2</option>--%>
-<%--<option value="3">3</option>--%>
-<%--<option value="4">4</option>--%>
-<%--<option value="5">5</option>--%>
-<%--<option value="-1">Other</option>--%>
-<%--</select>--%>
-<%--</form>--%>
-<%--<c:if test="${programSelect.value == -1}">--%>
-<%--Please input how long you will be staying:--%>
-<%--<input type="number" name="extendedDuration"/>--%>
-<%--</c:if>--%>
-<%--</c:if>--%>
-<%--<!--Static values for now, will be filled in by database entries later-->--%>
-<%--</div>--%>
