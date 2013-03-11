@@ -3,7 +3,9 @@
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    my.neumont.edu
+    <title></title>
+    <link rel="stylesheet" type="text/css"
+          href="${pageContext.request.contextPath}/neumont.css" />
 </head>
 <body>
     <jsp:include page="/Page_Template/header.jsp"/>

@@ -9,6 +9,8 @@
 <html>
 <head>
     <title></title>
+    <link rel="stylesheet" type="text/css"
+          href="${pageContext.request.contextPath}/neumont.css" />
 </head>
 <body>
     <jsp:include page="/Page_Template/header.jsp"/>

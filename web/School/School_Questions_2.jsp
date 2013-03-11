@@ -10,7 +10,7 @@
 <head>
     <title>Jabberwocky</title>
     <link rel="stylesheet" type="text/css"
-          href="${pageContext.request.contextPath}/resources/neumont.css" />
+          href="${pageContext.request.contextPath}/neumont.css" />
     <script language="JavaScript" type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
 <body>

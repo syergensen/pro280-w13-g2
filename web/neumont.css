@@ -43,3 +43,10 @@ div#footer
 {
     width: 115px;
 }
+
+div#tos
+{
+    vertical-align: 50%;
+    border: 2px solid black;
+    margin: 10px;
+}
