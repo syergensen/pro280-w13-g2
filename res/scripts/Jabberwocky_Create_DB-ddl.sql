@@ -1,30 +1,44 @@
+DROP TABLE IF EXISTS student_information;
+DROP TABLE IF EXISTS student_results;
+DROP TABLE IF EXISTS start_options;
+DROP TABLE IF EXISTS quarter_options;
+DROP TABLE IF EXISTS program_options;
+DROP TABLE IF EXISTS current_housing_options; 
+DROP TABLE IF EXISTS region_options;
+DROP TABLE IF EXISTS car_options;
+DROP TABLE IF EXISTS post_grad_housing_options;
+DROP TABLE IF EXISTS users_groups;
+DROP TABLE IF EXISTS groups;
+DROP TABLE IF EXISTS users;
+ 
+
 CREATE TABLE start_options
 (
-	terms_of_service_id INT AUTO_INCREMENT PRIMARY KEY,
-	term_of_service TEXT NOT NULL UNIQUE,
-  add_date DATETIME NOT NULL
+	  terms_of_service_id INT AUTO_INCREMENT PRIMARY KEY,
+	  term_of_service TEXT NOT NULL,
+    add_date DATETIME NOT NULL
 );
 
 
 CREATE TABLE quarter_options
 (
-	quarter_name NVARCHAR(20) PRIMARY KEY
+	  quarter_name NVARCHAR(20) PRIMARY KEY
 );
 
 
 CREATE TABLE program_options
 (
-	program_name NVARCHAR(4) PRIMARY KEY
+	  program_name NVARCHAR(4) PRIMARY KEY
 );
 
 CREATE TABLE current_housing_options
 (
-	housing_option NVARCHAR(50) PRIMARY KEY
+	  housing_option NVARCHAR(50) PRIMARY KEY
 );
 
 CREATE TABLE region_options
 (
-	region_name NVARCHAR(30) PRIMARY KEY
+	  region_name NVARCHAR(30) PRIMARY KEY
 );
 
 CREATE TABLE car_options
@@ -34,7 +48,7 @@ CREATE TABLE car_options
 
 CREATE TABLE post_grad_housing_options
 (
-	housing_option NVARCHAR(50) PRIMARY KEY
+	  housing_option NVARCHAR(50) PRIMARY KEY
 );
 
 CREATE TABLE student_information
@@ -76,20 +90,20 @@ CREATE TABLE student_results
 );
 
 CREATE TABLE users (
-	user_id   INTEGER AUTO_INCREMENT PRIMARY KEY,
-	name      NVARCHAR(64) NOT NULL UNIQUE,
-	password  NVARCHAR(64) NOT NULL
+	  user_id   INTEGER AUTO_INCREMENT PRIMARY KEY,
+	  name      NVARCHAR(64) NOT NULL UNIQUE,
+	  password  NVARCHAR(64) NOT NULL
 );
 
 CREATE TABLE groups (
-	group_id  INTEGER AUTO_INCREMENT PRIMARY KEY,
-	name      NVARCHAR(64) NOT NULL
+	  group_id  INTEGER AUTO_INCREMENT PRIMARY KEY,
+	  name      NVARCHAR(64) NOT NULL
 );
 
 CREATE TABLE users_groups (
-	user_id   INTEGER NOT NULL,
-	group_id  INTEGER NOT NULL,
-	PRIMARY KEY (user_id, group_id)
+	  user_id   INTEGER NOT NULL,
+	  group_id  INTEGER NOT NULL,
+	  PRIMARY KEY (user_id, group_id)
 );
 
 ALTER TABLE student_information
@@ -124,7 +138,7 @@ REFERENCES post_grad_housing_options(housing_option);
 
 ALTER TABLE student_results
 ADD CONSTRAINT student_username_fk
-FOREIGN KEY (name)
+FOREIGN KEY (student_username)
 REFERENCES users(name);
 
 ALTER TABLE users_groups 
@@ -136,4 +150,3 @@ ALTER TABLE users_groups
 ADD CONSTRAINT fk_users_groups_group_id
 FOREIGN KEY (group_id) 
 REFERENCES groups (group_id);
-  
