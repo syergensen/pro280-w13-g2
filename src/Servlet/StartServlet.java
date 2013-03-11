@@ -67,6 +67,7 @@ public class StartServlet extends HttpServlet {
 
             StudentInformation newStudent = new StudentInformation();
             newStudent.setUserName(username);
+            newStudent.setPassword(Encryption.digest(DUMMY_PASSWORD, EncryptionType.MD5));
 
             HttpSession currentSession = request.getSession();
             currentSession.setAttribute("currentUser", newStudent);

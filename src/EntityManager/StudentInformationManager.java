@@ -22,13 +22,13 @@ public class StudentInformationManager
     @PersistenceContext
     EntityManager em;
 
-    public List<StudentInformation> getAllSIEnteries() {
-        TypedQuery<StudentInformation> schoolsQuery = em.createQuery("SELECT s FROM StudentInformation s", StudentInformation.class);
-        return schoolsQuery.getResultList();
+    public List<StudentInformation> getAllSIEntries() {
+        TypedQuery<StudentInformation> getAllSIEntriesQuery = em.createQuery("SELECT s FROM StudentInformation s", StudentInformation.class);
+        return getAllSIEntriesQuery.getResultList();
     }
 
-    public StudentInformation getSIEntryById(int id) {
-        return em.find(StudentInformation.class, id);
+    public StudentInformation getSIEntryByUsername(String username) {
+        return em.find(StudentInformation.class, username);
     }
 
     public StudentInformation createSIEntry(StudentInformation studentInformation) {
@@ -41,7 +41,7 @@ public class StudentInformationManager
         return studentInformation;
     }
 
-    public void deleteSIEntryById(int id) {
-        em.remove(getSIEntryById(id));
+    public void deleteSIEntryByUsername(String username) {
+        em.remove(getSIEntryByUsername(username));
     }
 }
