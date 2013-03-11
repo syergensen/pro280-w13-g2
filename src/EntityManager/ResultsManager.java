@@ -1,6 +1,7 @@
 package EntityManager;
 
-import Entity.Results;
+import Entity.StudentResults;
+
 import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -22,26 +23,26 @@ public class ResultsManager
     @PersistenceContext
     EntityManager em;
 
-    public List<Results> getIngredients() {
-        TypedQuery<Results> ressultsQuery = em.createQuery("SELECT r FROM Results r", Results.class);
+    public List<StudentResults> getAllStudentResults() {
+        TypedQuery<StudentResults> ressultsQuery = em.createQuery("SELECT r FROM StudentResults r", StudentResults.class);
         return ressultsQuery.getResultList();
     }
 
-    public Results getResults(int id) {
-        return em.find(Results.class, id);
+    public StudentResults getStudentResultsById(int id) {
+        return em.find(StudentResults.class, id);
     }
 
-    public Results create(Results results) {
-        em.persist(results);
-        return results;
+    public StudentResults createStudentResultEntry(StudentResults studentResults) {
+        em.persist(studentResults);
+        return studentResults;
     }
 
-    public Results update(Results results) {
-        em.merge(results);
-        return results;
+    public StudentResults updateStudentResultEntry(StudentResults studentResults) {
+        em.merge(studentResults);
+        return studentResults;
     }
 
-    public void delete(int id) {
-        em.remove(getResults(id));
+    public void deleteStudentResultsById(int id) {
+        em.remove(getStudentResultsById(id));
     }
 }

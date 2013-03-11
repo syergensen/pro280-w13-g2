@@ -9,40 +9,40 @@ import java.util.List;
  * Time: 7:32 PM
  * To change this template use File | Settings | File Templates.
  */
-@Table(name = "Results")
+@Table(name = "student_results")
 @Entity
-public class Results
+public class StudentResults
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userName", nullable = false, length = 10)
+    @Column(name = "student_username", nullable = false, length = 50)
     public String userName;
 
-    @Column(name="salary",length = 32)
+    @Column(name="salary", nullable = false)
     public int salary;
 
-    @Column(name="fedTax",length = 32)
+    @Column(name="fed_tax", nullable = false)
     public int fedTax;
 
-    @Column(name="healthInsurance",length = 32)
+    @Column(name="health_insurance", nullable = false)
     public int healthInsurance;
 
-    @Column(name="miscInsurance",length = 32)
+    @Column(name="misc_insurance", nullable = false)
     public int miscInsurance;
 
-    @Column(name="carPayment",length = 32)
+    @Column(name="car_payment", nullable = false)
     public int carPayment;
 
-    @Column(name="mortgage",length = 32)
+    @Column(name="mortgage", nullable = false)
     public int mortgage;
 
-    @Column(name="rent",length = 32)
+    @Column(name="rent", nullable = false)
     public int rent;
 
-    @Column(name="utilities",length = 32)
+    @Column(name="utilities", nullable = false)
     public int utilities;
 
-    @Column(name="totalLoans",length = 32)
+    @Column(name="totalLoans", nullable = false)
     public int totalLoans;
 
 
