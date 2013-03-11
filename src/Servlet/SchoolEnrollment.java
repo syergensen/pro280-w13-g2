@@ -23,18 +23,24 @@ public class SchoolEnrollment extends HttpServlet
     {
         String startQuarter = request.getParameter("quarterStart");
         String programSelect = request.getParameter("programSelect");
-        String extendedQuarter = request.getParameter("extendedQuarter");
-        if(extendedQuarter.equals("other"))
+        String extendedStay = request.getParameter("extendedStay");
+        String extendedFullTime;
+        String extendedPartTime;
+        if(extendedStay == null)
         {
-            extendedQuarter = request.getParameter("extendedDuration");
+            extendedFullTime = request.getParameter("0");
+            extendedPartTime = request.getParameter("0");
+        } else{
+            extendedFullTime = request.getParameter("extendedFullTime");
+            extendedPartTime = request.getParameter("extendedPartTime");
         }
 
         HttpSession session = request.getSession();
-        session.setAttribute("startQuarter", startQuarter);
-        session.setAttribute("programSelect", programSelect);
-        session.setAttribute("extendedQuarter", extendedQuarter);
-
-        request.getRequestDispatcher("School_Questions_2.jsp");
+        /*
+            Validate, if pass get cookies and retrieve student information
+            and add the information to it and restore it as a session/cookie.
+            Else, redirect back to this page and try again.
+         */
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

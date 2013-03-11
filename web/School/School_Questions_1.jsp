@@ -22,34 +22,45 @@
        <div id ="container" align="center">
        		<div id="startQrtQuestion" align="left">1) When did you first arrive at Neumont?</div>
             <div id="startQrtResponse" align="left">
-            	<form action="">
                 <select name="quarterStart">
                     <option value="summer">Summer Quarter</option>
                     <option value="fall">Fall Quarter</option>
                 </select>
-                </form>
                 <!--Static values for now, will be filled in by database entries later-->
             </div>
             <div id="programQuestion" align="left">2) What program are you taking?</div>
             <div id="programResponse" align="left">
-            	<form action="">
                 <select name="programSelect">
                 <option value="bscs">BSCS</option> 
                 <option value="bstm">BSTM</option>
                 <option value="bsgd">BSGD</option>
                 <option value="bswd">BSWD</option>
                 </select>
-                </form>
                 <!--Static values for now, will be filled in by database entries later-->
             </div>
-            <div id="extendedQuestion" align="left">3) Will you be staying extra quarters</div>
+            <div id="extendedQuestion" align="left">3) Will you be staying extra quarters?</div>
             <div id="extendedResponse" align="left">
-               <form action="">
                    <div name="extendedStayResponses">
                        <input type="checkbox" name="extendedStay" id="extendedStay"/>Yes
-                   </div>
-                   <div id="extendedQuarter" style="display:none">
-                       <select name="extraQuarters" selected="1">
+                   </div></br>
+                   <div id="extendedFullTime" style="display:none">
+                       Full Time:<select name="extraFullQuarters" selected="1">
+                           <option value="0">0</option>
+                           <option value="1">1</option>
+                           <option value="2">2</option>
+                           <option value="3">3</option>
+                           <option value="4">4</option>
+                           <option value="5">5</option>
+                           <option value="6">6</option>
+                           <option value="7">7</option>
+                           <option value="8">8</option>
+                           <option value="9">9</option>
+                           <option value="10">10</option>
+                       </select>(Taking 12 Credits or More)
+                   </div></br>
+                   <div id="extendedPartTime" style="display:none">
+                       Part Time:<select name="extraPartQuarters" selected="0">
+                           <option value="0">0</option>
                            <option value="1">1</option>
                            <option value="2">2</option>
                            <option value="3">3</option>
@@ -62,7 +73,6 @@
                            <option value="10">10</option>
                        </select>
                    </div>
-               </form>
             </div>
       </div>
     </div>

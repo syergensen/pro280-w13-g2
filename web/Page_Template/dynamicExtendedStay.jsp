@@ -2,8 +2,8 @@
 <script>
     $(document).ready(function(){
         $('#extendedStay').click(function(){
-            alert("Script Fired");
-            $('#extendedQuarter').toggle(this.checked);
+            $('#extendedFullTime').toggle(this.checked);
+            $('#extendedPartTime').toggle(this.checked);
         });
     });
 </script>

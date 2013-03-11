@@ -22,17 +22,13 @@
     <div id ="container" align="center">
         <div id="startQrtQuestion" align="left">4) Approximately how much of your funding at Neumont is loans compared to out-of-pocket expenses?</div>
         <div id="startQrtResponse" align="left">
-            <form action="">
                 Note: Left is Loan, Right is Out of Pocket
                 <select name="fundingRatio">
                     <input type="range"  min="0" max="100" value="50"/>
                 </select>
-            </form>
-            <!--Static values for now, will be filled in by database entries later-->
         </div>
         <div id="programQuestion" align="left">5) What loans do you have?</div>
         <div id="programResponse" align="left">
-            <form action="">
                 <div id="loanInfoContainer">
                     <div id="loanInfo1">
                         Loan Amount:<input type="number" name="loanAmount1" value="0"/>
@@ -43,12 +39,10 @@
                 </div>
                 <input type="button" value="Add Loan"id="addLoanButton"/>
                 <input type="button" value="Remove Loan"id="removeLoanButton"/>
-            </form></br>
-            <form action="">
+                </br>
                 <div id="oOPInfoContainer">
                         Out of Pocket Amount:<input type="number" name="oOPAmount" value="0"/>
                 </div>
-            </form>
         </div>
     </div>
 </div>
