@@ -16,6 +16,9 @@
 <body >
     <jsp:include page="/Page_Template/dynamicExtendedStay.jsp"/>
     <jsp:include page="/Page_Template/header.jsp"/>
+    <div id="contentWrapper1">
+
+    <form action="/SchoolEnrollment" method="POST">
     <div align="center">
        <h1>Welcome to Project Jabberwocky</h1>
        <h2>Enrollment Section:</h2>
@@ -76,6 +79,9 @@
             </div>
       </div>
     </div>
+        <input type="submit" value="Next" />
+    </form>
+        </div>
     <jsp:include page="/Page_Template/footer.jsp"/>
 </body>
 </html>

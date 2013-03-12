@@ -16,16 +16,18 @@
 <body>
 <jsp:include page="/Page_Template/dynamicLoanOOPBox.jsp"/>
 <jsp:include page="/Page_Template/header.jsp"/>
+<div id="contentWrapper1">
+<form action="/SchoolLoan" method="POST">
 <div align="center">
     <h1>Please continue answering.</h1>
     <h2>Loan(s) Section</h2>
     <div id ="container" align="center">
         <div id="startQrtQuestion" align="left">4) Approximately how much of your funding at Neumont is loans compared to out-of-pocket expenses?</div>
         <div id="startQrtResponse" align="left">
-                Note: Left is Loan, Right is Out of Pocket
-                <select name="fundingRatio">
-                    <input type="range"  min="0" max="100" value="50"/>
-                </select>
+                Note: Left is Loan, Right is Out of Pocket</br>
+                <div name="fundingRatio">
+                    <input name="slider" id="slider" type="range"  min="0" max="100" value="50"/>
+                </div>
         </div>
         <div id="programQuestion" align="left">5) What loans do you have?</div>
         <div id="programResponse" align="left">
@@ -45,6 +47,9 @@
                 </div>
         </div>
     </div>
+</div>
+    <input type="submit" value="Next"/>
+</form>
 </div>
 <jsp:include page="/Page_Template/footer.jsp"/>
 </body>
