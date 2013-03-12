@@ -1,5 +1,7 @@
 package Servlet;
 
+import Entity.StudentInformation;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,18 +26,25 @@ public class SchoolEnrollment extends HttpServlet
         String startQuarter = request.getParameter("quarterStart");
         String programSelect = request.getParameter("programSelect");
         String extendedStay = request.getParameter("extendedStay");
-        String extendedFullTime;
-        String extendedPartTime;
-        if(extendedStay == null)
-        {
-            extendedFullTime = request.getParameter("0");
-            extendedPartTime = request.getParameter("0");
+        int extendedFullTime;
+        int extendedPartTime;
+        if(extendedStay.equals("off")){
+            extendedFullTime = 0;
+            extendedPartTime = 0;
         } else{
-            extendedFullTime = request.getParameter("extendedFullTime");
-            extendedPartTime = request.getParameter("extendedPartTime");
+            extendedFullTime = Integer.parseInt(request.getParameter("extendedFullTime"));
+            extendedPartTime = Integer.parseInt(request.getParameter("extendedPartTime"));
         }
 
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
+        StudentInformation curStudent = (StudentInformation) session.getAttribute("currentUser");
+        curStudent.setEnrollQuarter(startQuarter);
+        curStudent.setProgram(programSelect);
+        curStudent.setExtraFullTime(extendedFullTime);
+        curStudent.setExtraPartTime(extendedPartTime);
+
+        session.setAttribute("currentStudent", curStudent);
+        request.getRequestDispatcher("/SchoolLoan");
         /*
             Validate, if pass get cookies and retrieve student information
             and add the information to it and restore it as a session/cookie.

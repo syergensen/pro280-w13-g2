@@ -1,6 +1,7 @@
 package Entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -62,6 +63,8 @@ public class StudentInformation
 
     @Column(name = "monthly_utilities", nullable = true)
     private double monthlyUtilities;
+
+    private ArrayList<Loan> studentLoans = new ArrayList<Loan>();
 
     public String getUserName()
     {
@@ -221,5 +224,25 @@ public class StudentInformation
     public void setMonthlyUtilities(double monthlyUtilities)
     {
         this.monthlyUtilities = monthlyUtilities;
+    }
+
+    public ArrayList<Loan> getStudentLoans() {
+        return studentLoans;
+    }
+
+    public void setStudentLoans(ArrayList<Loan> studentLoans) {
+        this.studentLoans = studentLoans;
+    }
+
+    public void addLoan(Loan loan){
+        this.studentLoans.add(loan);
+    }
+
+    public void removeLoan(Loan loan){
+        this.studentLoans.remove(loan);
+    }
+
+    public void emptyStudentLoans(){
+        this.studentLoans.clear();
     }
 }

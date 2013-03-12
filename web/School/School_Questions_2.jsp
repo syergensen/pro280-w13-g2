@@ -31,10 +31,10 @@
         <div id="programResponse" align="left">
                 <div id="loanInfoContainer">
                     <div id="loanInfo1">
-                        Loan Amount:<input type="number" name="loanAmount1" value="0"/>
-                        Loan Interest:<input type="number" name="loanInterest1" value="0"/>
-                        First Year Monthly Payment:<input type="number" name="firstYearMonthly1" value="0"/>
-                        Monthly Payment:<input type="number" name="monthlyPayment1" value="0"/></br>
+                        Loan Amount:<input type="number" name="loanAmount" value="0"/>
+                        Loan Interest:<input type="number" name="loanInterest" value="0"/>
+                        First Year Monthly Payment:<input type="number" name="firstYearMonthly" value="0"/>
+                        Monthly Payment:<input type="number" name="monthlyPayment" value="0"/></br>
                     </div>
                 </div>
                 <input type="button" value="Add Loan"id="addLoanButton"/>

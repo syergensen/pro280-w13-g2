@@ -1,5 +1,7 @@
 package Servlet;
 
+import Entity.Loan;
+import Entity.StudentInformation;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.WildcardLoader;
 
 import javax.servlet.ServletException;
@@ -25,21 +27,34 @@ public class SchoolLoan {
         int oopAmount = 100 - (Integer.valueOf(request.getParameter("fundingRatio")));
         String oopRatio = Integer.toString(oopAmount);
 
-        //Will need to iterate over each div section and create a loan object
-        String loanAmount = request.getParameter("loanAmount");
-        String loanInterest = request.getParameter("loanInterest");
-        String firstYearPayment = request.getParameter("firstYearMonthly");
-        String yearlyPayment = request.getParameter("monthlyPayment");
+        String[] loanAmounts = request.getParameterValues("loanAmount");
+        String[] loanInterests = request.getParameterValues("loanInterest");
+        String[] firstYearlyPayments = request.getParameterValues("firstYearMonthly");
+        String[] monthlyPayments = request.getParameterValues("monthlyPayment");
 
-        String ooPAmount = request.getParameter("oOPAmount");
+        int ooPAmount = Integer.valueOf(request.getParameter("oOPAmount"));
 
         /*
-            Will need to validate entries. Then for each loan entered,
-            create a new loan and calculate results and store it in a collection of loans.
-            Pass the collection into the session.
+            Need to verify loan values
          */
 
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
+        StudentInformation curUser = (StudentInformation) session.getAttribute("currentUser");
+
+        int loanNumbers = loanAmounts.length; //Amount of loans
+
+        for(int i = 0; i < loanNumbers; i++){
+            int loanAmount = Integer.valueOf(loanAmounts[i]);
+            int loanInterest = Integer.valueOf(loanInterests[i]);
+            int firstYearlyPayment = Integer.valueOf(firstYearlyPayments[i]);
+            int monthlyPayment = Integer.valueOf(monthlyPayments[i]);
+
+            Loan loan = new Loan(loanAmount, loanInterest, firstYearlyPayment, monthlyPayment);
+
+            curUser.getStudentLoans().add(loan);
+        }
+
+        session.setAttribute("currentUser", curUser);
 
         request.getRequestDispatcher("/Housing");
     }
