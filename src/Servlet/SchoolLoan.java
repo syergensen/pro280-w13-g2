@@ -5,6 +5,7 @@ import Entity.StudentInformation;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,7 +19,7 @@ import java.io.IOException;
  * To change this template use File | Settings | File Templates.
  */
 @WebServlet("/SchoolLoan")
-public class SchoolLoan {
+public class SchoolLoan extends HttpServlet {
     //Class will be used to calculate the financial information based on the input
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String loanRatio = request.getParameter("fundingRatio");
