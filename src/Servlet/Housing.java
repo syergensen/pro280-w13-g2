@@ -1,5 +1,7 @@
 package Servlet;
 
+import Entity.StudentInformation;
+import Helper.HousingHelper;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +23,7 @@ public class Housing extends HttpServlet
 {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        HousingHelper house;
         String housingType = request.getParameter("housing");
         String housingRent = request.getParameter("housingA");
         String housingUtility = request.getParameter("housingB");
@@ -28,31 +31,36 @@ public class Housing extends HttpServlet
         String daysEatingDinner = request.getParameter("daysEatingDinner");
         String spentOnVideoGames = request.getParameter("spentonvideogames");
         String savings = request.getParameter("saving");
-             /*
+
         try{
             //not sure if these will be need but here in case
-        int rent = Integer.parseInt(housingRent);
-        int utiltiy = Integer.parseInt(housingUtility);
-        int spentOnLunch = Integer.parseInt(daysEatingLunch);
+        double rent = Double.parseDouble(housingRent);
+        double utility = Double.parseDouble(housingUtility);
+        int daysSpentOnLunch = Integer.parseInt(daysEatingLunch);
         int spentOnDinner = Integer.parseInt(daysEatingDinner);
-        int videoGameSpending = Integer.parseInt(spentOnVideoGames);
-        int savingsAmount = Integer.parseInt(savings);
+        double videoGameSpending = Double.parseDouble(spentOnVideoGames);
+        double savingsAmount = Double.parseDouble(savings);
+        house = new HousingHelper(housingType, rent,utility,daysSpentOnLunch,spentOnDinner,videoGameSpending, savingsAmount);
+
+            //curUser.getStudentLoans().add(loan);
+            //will probably change this to use the integers but to be determined later
+            HttpSession session = request.getSession();
+            StudentInformation curUser = (StudentInformation) session.getAttribute("currentUser");
+
+            curUser.setMonthlyUtilities(utility);
+            curUser.setMonthlyRent(rent);
+            session.setAttribute("currentUser", curUser);
+            session.setAttribute("housingType",housingType);
+            session.setAttribute("daysEatingLunch",daysEatingLunch);
+            session.setAttribute("daysEatingDinner",daysEatingDinner);
+            session.setAttribute("spentOnVideoGames",spentOnVideoGames);
+            session.setAttribute("saving",savings);
         }
         catch(Exception e)
         {
             //will do better error checking soon
             e.printStackTrace();
         }
-            */
-        //will probably change this to use the integers but to be determined later
-        HttpSession session = request.getSession();
-        session.setAttribute("housingType", housingType);
-        session.setAttribute("housingRent", housingRent);
-        session.setAttribute("housingUtility", housingUtility);
-        session.setAttribute("daysEatingLunch",daysEatingLunch);
-        session.setAttribute("daysEatingDinner",daysEatingDinner);
-        session.setAttribute("spentOnVideoGames",spentOnVideoGames);
-        session.setAttribute("savings",savings);
 
         request.getRequestDispatcher("Post_Graduation.jsp");
     }

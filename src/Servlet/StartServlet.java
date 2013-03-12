@@ -81,7 +81,9 @@ public class StartServlet extends HttpServlet {
             //request.setAttribute("tos", termsOfServiceManager.getTermsOfServiceById(0));
 
             response.sendRedirect(request.getContextPath());
+
         } catch(ServletException e) {
+            e.printStackTrace();
             request.getRequestDispatcher("/WEB-INF/login/login_error.jsp").forward(request, response);
         }
     }
