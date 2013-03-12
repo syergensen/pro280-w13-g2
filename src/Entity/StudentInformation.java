@@ -12,58 +12,39 @@ import java.util.ArrayList;
  * Time: 7:32 PM
  * To change this template use File | Settings | File Templates.
  */
-@Table(name = "student_information")
-@Entity
 public class StudentInformation
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "username", length = 50)
+
     private String userName;
 
-    @Column(name = "user_password", nullable = false, length = 50)
     private String password;
 
-    @Column(name = "enrollment_quarter", nullable = false, length = 20)
     private String enrollQuarter;
 
-    @Column(name = "program", nullable = false, length = 4)
     private String program;
 
-    @Column(name = "extra_part_time", nullable = true)
     private int extraPartTime;
 
-    @Column(name = "extra_full_time", nullable = true)
     private int extraFullTime;
 
-    @Column(name = "OOP_ratio", nullable = false)
     private int pocketRatio;
 
-    @Column(name = "loan_ratio", nullable = false)
     private int loanRatio;
 
-    @Column(name = "credit_card_debt", nullable = true)
     private double creditCardDebt;
 
-    @Column(name = "medical_debt", nullable = true)
     private double medicalDebt;
 
-    @Column(name = "other_loan_debt", nullable = true)
     private double otherLoanDebt;
 
-    @Column(name = "preferred_region", nullable = false, length = 30)
     private String preferredRegion;
 
-    @Column(name = "preferred_car", nullable = false, length = 50)
     private String preferredCar;
 
-    @Column(name = "preferred_housing", nullable = false, length = 50)
-    private int preferredHousing;
+    private String preferredHousing;
 
-    @Column(name = "monthly_rent", nullable = true)
     private double monthlyRent;
 
-    @Column(name = "monthly_utilities", nullable = true)
     private double monthlyUtilities;
 
     private ArrayList<Loan> studentLoans = new ArrayList<Loan>();
@@ -198,12 +179,12 @@ public class StudentInformation
         this.preferredCar = preferredCar;
     }
 
-    public int getPreferredHousing()
+    public String getPreferredHousing()
     {
         return preferredHousing;
     }
 
-    public void setPreferredHousing(int preferredHousing)
+    public void setPreferredHousing(String preferredHousing)
     {
         this.preferredHousing = preferredHousing;
     }

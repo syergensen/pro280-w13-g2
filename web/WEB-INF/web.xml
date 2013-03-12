@@ -4,6 +4,14 @@
            xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
            version="2.5">
+    <servlet>
+        <servlet-name>ResultsServlet</servlet-name>
+        <servlet-class>Servlet.ResultsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PostGradServlet</servlet-name>
+        <servlet-class>Servlet.PostGradServlet</servlet-class>
+    </servlet>
     <welcome-file-list>
         <welcome-file>/start/start.jsp</welcome-file>
     </welcome-file-list>
