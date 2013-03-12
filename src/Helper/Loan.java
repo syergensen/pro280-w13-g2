@@ -1,4 +1,4 @@
-package Entity;
+package Helper;
 
 /**
  * Created with IntelliJ IDEA.

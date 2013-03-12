@@ -1,5 +1,7 @@
 package Entity;
 
+import Helper.Loan;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 

@@ -1,8 +1,7 @@
 package Servlet;
 
-import Entity.Loan;
+import Helper.Loan;
 import Entity.StudentInformation;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.WildcardLoader;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
