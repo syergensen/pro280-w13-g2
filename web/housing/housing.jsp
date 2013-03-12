@@ -19,7 +19,7 @@
             b. on average, how much per month is spent on bill<input name="housingB"type="text"/><br>
             <br>
             2. On average how many days out of the week do you eat out for lunch<br>
-            <input name="daysEatingLunch" type="text" />   <br>
+            <input name="daysEatingLunch" type="text" />    <br>
             <br>
             3. on average how many days out of the week do you eat out for dinner? <br>
             <input name="daysEatingDinner" type="text"/><br>
