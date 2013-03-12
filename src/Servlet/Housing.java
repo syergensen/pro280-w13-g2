@@ -27,6 +27,7 @@ public class Housing extends HttpServlet
         String daysEatingLunch = request.getParameter("daysEatingLunch");
         String daysEatingDinner = request.getParameter("daysEatingDinner");
         String spentOnVideoGames = request.getParameter("spentonvideogames");
+        String savings = request.getParameter("saving");
              /*
         try{
             //not sure if these will be need but here in case
@@ -35,6 +36,7 @@ public class Housing extends HttpServlet
         int spentOnLunch = Integer.parseInt(daysEatingLunch);
         int spentOnDinner = Integer.parseInt(daysEatingDinner);
         int videoGameSpending = Integer.parseInt(spentOnVideoGames);
+        int savingsAmount = Integer.parseInt(savings);
         }
         catch(Exception e)
         {
@@ -50,6 +52,7 @@ public class Housing extends HttpServlet
         session.setAttribute("daysEatingLunch",daysEatingLunch);
         session.setAttribute("daysEatingDinner",daysEatingDinner);
         session.setAttribute("spentOnVideoGames",spentOnVideoGames);
+        session.setAttribute("savings",savings);
 
         request.getRequestDispatcher("Post_Graduation.jsp");
     }

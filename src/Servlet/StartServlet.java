@@ -61,7 +61,7 @@ public class StartServlet extends HttpServlet {
                 user = new User();
                 user.setName(username);
                 user.setPassword(Encryption.digest(DUMMY_PASSWORD, EncryptionType.MD5));
-                Set<Group> groups = new HashSet<>();
+                Set<Group> groups = new HashSet<Group>();
                 groups.add(group);
                 user.setGroups(groups);
                 userManager.saveUser(user);

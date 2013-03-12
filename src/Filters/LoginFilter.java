@@ -22,7 +22,8 @@ public class LoginFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         Principal userPrincipal = request.getUserPrincipal();
 
-        if (userPrincipal == null && !"/Start".equals(request.getServletPath())){
+        if (userPrincipal == null && !"/Start".equals(request.getServletPath()))
+        {
 
             String fullRequestPath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
             ((HttpServletResponse) response).sendRedirect("http://my.neumont.edu/nuid/service.aspx?ReturnUrl=" + fullRequestPath + "/Start");

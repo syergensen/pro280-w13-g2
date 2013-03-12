@@ -18,11 +18,11 @@ public class Loan {
     int firstYearPayment;
     int monthlyPayment;
 
-    public Loan(int loanAmt, int interestPercent, int firstYear, int montlyPayment){
+    public Loan(int loanAmt, int interestPercent, int firstYear, int monthlyPayment){
         this.loanAmount = loanAmt;
         this.interest = interestPercent;
         this.firstYearPayment = firstYear;
-        this.monthlyPayment = montlyPayment;
+        this.monthlyPayment = monthlyPayment;
         calculateInterest(interestPercent, loanAmt);
     }
 
