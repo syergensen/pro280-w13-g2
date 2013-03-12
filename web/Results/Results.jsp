@@ -15,28 +15,30 @@
 </head>
 <body>
     <jsp:include page="/Page_Template/header.jsp"/>
-    <table id="resultsLayoutTable">
-        <tr>
-            <td id="resultsLeftMargin">
-                <form action="AddAQuarter" method="POST">
-                    <input type="submit" value="+1 Quarter"/>
-                </form>
-            </td>
-            <td id="centerContent">
-                <table id="resultsDataTable">
-                    <!-- TODO: JSTL LOOPING TO GENERATE ROWS AND COLS FOR RESULT DATA !-->
-                </table>
-            </td>
-            <td id="resultsRightMargin">
-                <form action="/Results" method="POST">
-                    <input type="submit" value="Print/Export"/>
-                </form>
-            </td>
-        </tr>
-        <tr id="resultsLayoutFooter">
-            Discretionary Income:
-        </tr>
-    </table>
+    <div id="contentWrapper1">
+        <table id="resultsLayoutTable">
+            <tr>
+                <td id="resultsLeftMargin">
+                    <form action="AddAQuarter" method="POST">
+                        <input type="submit" value="+1 Quarter"/>
+                    </form>
+                </td>
+                <td id="centerContent">
+                    <table id="resultsDataTable">
+                        <!-- TODO: JSTL LOOPING TO GENERATE ROWS AND COLS FOR RESULT DATA !-->
+                    </table>
+                </td>
+                <td id="resultsRightMargin">
+                    <form action="/Results" method="POST">
+                        <input type="submit" value="Print/Export"/>
+                    </form>
+                </td>
+            </tr>
+            <tr id="resultsLayoutFooter">
+                Discretionary Income:
+            </tr>
+        </table>
+    </div>
     <jsp:include page="/Page_Template/footer.jsp"/>
 </body>
 </html>

@@ -14,21 +14,23 @@
     </head>
     <body>
         <jsp:include page="/Page_Template/header.jsp"/>
-        Tool Description:<br/>
-        <ul id="toolDescription">
-            <li>Financial terms and processes are confusing</li>
-            <li>Most students lack a complete understanding of loans while in school</li>
-        </ul>
+        <div id="contentWrapper1">
+            Tool Description:<br/>
+            <ul id="toolDescription">
+                <li>Financial terms and processes are confusing</li>
+                <li>Most students lack a complete understanding of loans while in school</li>
+            </ul>
 
-        <form method="POST" action="Start">
-            <div id="tos">
-                <textarea id="tosTextArea" readonly="true">
-                    TOS
-                </textarea> <br/>
-                <input id="agreeToTOS" name="agreeToTOS" type="checkbox"/> I have read and agree to the Terms of Service
-            </div>
-            <input id="tosSubmit" type="submit" value="Begin"/>
-        </form>
+            <form method="POST" action="Start">
+                <div id="tos">
+                    <textarea id="tosTextArea" readonly="true">
+                        TOS
+                    </textarea> <br/>
+                    <input id="agreeToTOS" name="agreeToTOS" type="checkbox"/> I have read and agree to the Terms of Service
+                </div>
+                <input id="tosSubmit" type="submit" value="Begin"/>
+            </form>
+        </div>
         <jsp:include page="/Page_Template/footer.jsp"/>
     </body>
 </html>

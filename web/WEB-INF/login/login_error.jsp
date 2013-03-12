@@ -9,7 +9,9 @@
           href="${pageContext.request.contextPath}/neumont.css" />
 </head>
 <body>
-<h1>Bad User Name &amp; Password Combination</h1>
-<a href="<c:url value="/" />">Go to the home page.</a>
+<div id="contentWrapper1">
+    <h1>Bad User Name &amp; Password Combination</h1>
+    <a href="<c:url value="/" />">Go to the home page.</a>
+</div>
 </body>
 </html>

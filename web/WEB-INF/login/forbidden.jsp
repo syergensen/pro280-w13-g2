@@ -10,15 +10,17 @@
           href="${pageContext.request.contextPath}/neumont.css" />
 </head>
 <body>
-	<h1>Sorry!</h1>
-	<p>You are not allowed to visit this page!</p>
-	<p>Perhaps you'd like to change your login?</p>
-	<c:url var="Relogin" value="/Relogin" />
-	<form method="POST" action="${Relogin }">
-		User Name: <input type="text" name="username" /><br /> Password: <input type="password" name="password" /><br /> <input
-			type="hidden" name="redirect"
-			value="${requestScope['javax.servlet.error.request_uri']}<c:if test="${ !empty pageContext.request.queryString }">?${pageContext.request.queryString }</c:if>">
-		<input type="submit" value="Login" />
-	</form>
+    <div id="contentWrapper1">
+        <h1>Sorry!</h1>
+        <p>You are not allowed to visit this page!</p>
+        <p>Perhaps you'd like to change your login?</p>
+        <c:url var="Relogin" value="/Start" />
+        <form method="POST" action="${Relogin }">
+            User Name: <input type="text" name="username" /><br /> Password: <input type="password" name="password" /><br /> <input
+                type="hidden" name="redirect"
+                value="${requestScope['javax.servlet.error.request_uri']}<c:if test="${ !empty pageContext.request.queryString }">?${pageContext.request.queryString }</c:if>">
+            <input type="submit" value="Login" />
+        </form>
+    </div>
 </body>
 </html>
