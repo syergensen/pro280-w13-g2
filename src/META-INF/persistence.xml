@@ -6,5 +6,6 @@
 		<class>Entity.Group</class>
         <class>Entity.StudentInformation</class>
         <class>Entity.StudentResults</class>
+        <class>Entity.TermsOfService</class>
 	</persistence-unit>
 </persistence>

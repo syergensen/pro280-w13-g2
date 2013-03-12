@@ -6,6 +6,7 @@ import Entity.Group;
 import Entity.StudentInformation;
 import Entity.User;
 import EntityManager.GroupManager;
+import EntityManager.TermsOfServiceManager;
 import EntityManager.UserManager;
 
 import javax.ejb.EJB;
@@ -37,6 +38,9 @@ public class StartServlet extends HttpServlet {
 
     @EJB
     GroupManager groupManager;
+
+    @EJB
+    TermsOfServiceManager termsOfServiceManager;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -73,6 +77,8 @@ public class StartServlet extends HttpServlet {
             currentSession.setAttribute("currentUser", newStudent);
 
             request.login(username, DUMMY_PASSWORD);
+
+            //request.setAttribute("tos", termsOfServiceManager.getTermsOfServiceById(0));
 
             response.sendRedirect(request.getContextPath());
         } catch(ServletException e) {

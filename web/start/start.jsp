@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>Jabberwocky - ${pageContext.servletConfig.servletName}</title>
+        <title>NUBA - Start</title>
         <link rel="stylesheet" type="text/css"
               href="${pageContext.request.contextPath}/neumont.css" />
     </head>
@@ -24,7 +24,6 @@
             <div id="tos">
                 <textarea id="tosTextArea" readonly="true">
                     TOS
-                    <!-- generate tos from model object -->
                 </textarea> <br/>
                 <input id="agreeToTOS" name="agreeToTOS" type="checkbox"/> I have read and agree to the Terms of Service
             </div>
