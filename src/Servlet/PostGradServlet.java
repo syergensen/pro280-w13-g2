@@ -1,6 +1,7 @@
 package Servlet;
 
 import Entity.StudentInformation;
+import Entity.StudentResults;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,11 +34,18 @@ public class PostGradServlet extends HttpServlet {
         currentUser.setPreferredHousing(housingSelection);
 
         currentSession.setAttribute("currentUser", currentUser);
+        currentUser = (StudentInformation)currentSession.getAttribute("currentUser");
 
-        response.sendRedirect("/Results/Results.jsp");
+        StudentResults results = new StudentResults();
+
+        results.setUserName(currentUser.getUserName());
+        //results.
+
+
+        response.sendRedirect(request.getContextPath() + "/Results");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath() + "/Post_Graduation/Post_Graduation.jsp");
+        request.getRequestDispatcher("/Post_Graduation/Post_Graduation.jsp").forward(request, response);
     }
 }

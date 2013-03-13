@@ -1,4 +1,4 @@
-USE test;
+USE pro280g3;
 
 DROP TABLE IF EXISTS student_information;
 DROP TABLE IF EXISTS student_results;
@@ -30,7 +30,7 @@ CREATE TABLE quarter_options
 
 CREATE TABLE program_options
 (
-	program_name NVARCHAR(4) PRIMARY KEY
+	program_name NVARCHAR(12) PRIMARY KEY
 );
 
 CREATE TABLE current_housing_options
@@ -170,47 +170,74 @@ Questions regarding the information contained in this tool may be directed to th
 );
 
 INSERT INTO quarter_options (quarter_name)
-VALUES 
-(
-	Fall, 
-	Winter, 
-	Spring, 
-	Summer
-);
+VALUES('Fall');
+
+INSERT INTO quarter_options (quarter_name)
+VALUES('Winer');
+
+INSERT INTO quarter_options (quarter_name)
+VALUES('Spring');
+
+INSERT INTO quarter_options (quarter_name)
+VALUES('Summer');
 
 INSERT INTO program_options (program_name)
-VALUES 
-(
-	BSCS,
-	BSTM (BTOM),
-	BSGD,
-	BSWD,
-	BSIS
-);
+VALUES('BSCS');
+
+INSERT INTO program_options (program_name)
+VALUES('BTOM (BSTM)');
+
+INSERT INTO program_options (program_name)
+VALUES('BSGD');
+
+INSERT INTO program_options (program_name)
+VALUES('BSWD');
+
+INSERT INTO program_options (program_name)
+VALUES('BSIS');
 
 INSERT INTO current_housing_options (housing_option)
-VALUES 
-(
-	'Neumont University housing',
-	'Lives with family or friends for free',
-	'Renting an apartment or similar'
-); 
+VALUES('Neumont University housing');
+
+INSERT INTO current_housing_options (housing_option)
+VALUES('Lives with family or friends for free');
+
+INSERT INTO current_housing_options (housing_option)
+VALUES('Renting an apartment or similar'); 
 
 INSERT INTO region_options (region_name)
-VALUES 
-(
-	'New England',
-	'Mid-Atlantic',
-	'Southeast',
-	'Midwest',
-	'Mountain-plains',
-	'West'
-);
+VALUES('New England');
+
+INSERT INTO region_options (region_name)
+VALUES('Mid-Atlantic');
+
+INSERT INTO region_options (region_name)
+VALUES('Southeast');
+
+INSERT INTO region_options (region_name)
+VALUES('Midwest');
+
+INSERT INTO region_options (region_name)
+VALUES('Mountain-plains');
+
+INSERT INTO region_options (region_name)
+VALUES('West');
 
 INSERT INTO car_options (car_option)
-VALUES
-(
-	
-);
+VALUES('New car');
 
+INSERT INTO car_options (car_option)
+VALUES('Used car');
+
+INSERT INTO car_options (car_option)
+VALUES('Transit');
+
+INSERT INTO post_grad_housing_options (housing_option)
+VALUES ('Own');
+
+INSERT INTO post_grad_housing_options (housing_option)
+VALUES ('Rent');
+
+INSERT INTO post_grad_housing_options (housing_option)
+VALUES ('Live with parents');
   

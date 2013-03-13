@@ -25,17 +25,51 @@
                 </td>
                 <td id="centerContent">
                     <table id="resultsDataTable">
-                        <!-- TODO: JSTL LOOPING TO GENERATE ROWS AND COLS FOR RESULT DATA !-->
+                        <tr>
+                            <td>Salary</td>
+                            <td>$5,416/month</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Student Loan</td>
+                            <td>$830/month</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Income Tax</td>
+                            <td>$588/month</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Misc. Expenses</td>
+                            <td>$650/month</td>
+                            <td><input type="submit" value="Revise"></td>
+                        </tr>
+                        <tr>
+                            <td>Car Expenses</td>
+                            <td>$330/month</td>
+                            <td><input type="submit" value="Revise"></td>
+                        </tr>
+                        <tr>
+                            <td>Mortgage/Rent</td>
+                            <td>$1900/month</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Savings Acct Contribution</td>
+                            <td>$830/month</td>
+                            <td></td>
+                        </tr>
                     </table>
                 </td>
                 <td id="resultsRightMargin">
-                    <form action="/Results" method="POST">
+                    <form action="Results" method="POST">
                         <input type="submit" value="Print/Export"/>
                     </form>
                 </td>
             </tr>
             <tr id="resultsLayoutFooter">
-                Discretionary Income:
+                Discretionary Income: $310/month
             </tr>
         </table>
     </div>

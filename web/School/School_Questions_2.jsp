@@ -17,7 +17,7 @@
 <jsp:include page="/Page_Template/dynamicLoanOOPBox.jsp"/>
 <jsp:include page="/Page_Template/header.jsp"/>
 <div id="contentWrapper1">
-<form action="/SchoolLoan" method="POST">
+<form action="SchoolLoan" method="POST">
 <div align="center">
     <h1>Please continue answering.</h1>
     <h2>Loan(s) Section</h2>

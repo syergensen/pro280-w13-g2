@@ -15,16 +15,17 @@
     <body>
         <jsp:include page="/Page_Template/header.jsp"/>
         <div id="contentWrapper1">
-            Tool Description:<br/>
-            <ul id="toolDescription">
-                <li>Financial terms and processes are confusing</li>
-                <li>Most students lack a complete understanding of loans while in school</li>
-            </ul>
-
+            <div id="startContent">
+                Tool Description:<br/>
+                <ul id="toolDescription">
+                    <li>Financial terms and processes are confusing</li>
+                    <li>Most students lack a complete understanding of loans while in school</li>
+                </ul>
+            </div>
             <form method="POST" action="Start">
                 <div id="tos">
-                    <textarea id="tosTextArea" readonly="true">
-                        TOS
+                    <textarea id="tosTextArea" readonly="true" rows="10" cols="50">
+                        ${tos}
                     </textarea> <br/>
                     <input id="agreeToTOS" name="agreeToTOS" type="checkbox"/> I have read and agree to the Terms of Service
                 </div>

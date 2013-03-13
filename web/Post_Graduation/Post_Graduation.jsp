@@ -16,7 +16,7 @@
 <body>
     <jsp:include page="/Page_Template/header.jsp"/>
     <div id="contentWrapper1">
-        <form action="/PostGraduation" method="POST">
+        <form action="PostGraduation" method="POST">
             <p>In order to provide more accurate results we would like to know more about your aspirations, things that you desire to have after graduation: </p>
             <p>
                 1.  After graduating Neumont, what is your preferred region to live in the United States:
@@ -31,7 +31,7 @@
                 2.  Please describe your preferred car:
                     // TODO: JSTL loop to generate possible car options from model
                     <c:forEach var="carOption" items="${carOptions}">
-                        <input type="radio" name="carOptions" value="${carOption}">${carOption}</option>
+                        <input type="radio" name="carOptions" value="${carOption}"/>${carOption}</option>
                     </c:forEach>
             </p>
             <p>

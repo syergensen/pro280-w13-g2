@@ -19,9 +19,9 @@ import java.io.IOException;
  * To change this template use File | Settings | File Templates.
  */
 @WebServlet("/SchoolLoan")
-public class SchoolLoan extends HttpServlet {
+public class SchoolLoan extends HttpServlet{
     //Class will be used to calculate the financial information based on the input
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String loanRatio = request.getParameter("fundingRatio");
         int max = 100;
         int oopAmount = 100 - (Integer.valueOf(request.getParameter("fundingRatio")));
@@ -56,10 +56,10 @@ public class SchoolLoan extends HttpServlet {
 
         session.setAttribute("currentUser", curUser);
 
-        request.getRequestDispatcher("/Housing");
+        response.sendRedirect(request.getContextPath() + "/Housing");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath() + "/School/School_Questions_2.jsp");
+        request.getRequestDispatcher("/School/School_Questions_2.jsp").forward(request,response);
     }
 }

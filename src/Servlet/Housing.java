@@ -62,11 +62,11 @@ public class Housing extends HttpServlet
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher("Post_Graduation.jsp");
+        response.sendRedirect(request.getContextPath() + "Post_Graduation/Post_Graduation.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-
+        request.getRequestDispatcher("/Housing/housing.jsp").forward(request,response);
     }
 }

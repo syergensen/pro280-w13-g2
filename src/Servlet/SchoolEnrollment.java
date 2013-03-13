@@ -21,14 +21,17 @@ import java.io.IOException;
 public class SchoolEnrollment extends HttpServlet
 {
     //Class will be for generating duration of enrollment, also for calculating dates
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         String startQuarter = request.getParameter("quarterStart");
         String programSelect = request.getParameter("programSelect");
         String extendedStay = request.getParameter("extendedStay");
+
+
+
         int extendedFullTime;
         int extendedPartTime;
-        if(extendedStay.equals("off")){
+        if(extendedStay == null){
             extendedFullTime = 0;
             extendedPartTime = 0;
         } else{
@@ -44,7 +47,8 @@ public class SchoolEnrollment extends HttpServlet
         curStudent.setExtraPartTime(extendedPartTime);
 
         session.setAttribute("currentStudent", curStudent);
-        request.getRequestDispatcher("/SchoolLoan");
+        String contextPath = request.getContextPath();
+        response.sendRedirect(request.getContextPath() + "/SchoolLoan");
         /*
             Validate, if pass get cookies and retrieve student information
             and add the information to it and restore it as a session/cookie.
@@ -54,6 +58,6 @@ public class SchoolEnrollment extends HttpServlet
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.sendRedirect(request.getContextPath() + "/School/School_Questions_1.jsp");
+        request.getRequestDispatcher("/School/School_Questions_1.jsp").forward(request, response);
     }
 }

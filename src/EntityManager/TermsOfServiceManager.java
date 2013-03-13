@@ -21,7 +21,7 @@ public class TermsOfServiceManager {
     @PersistenceContext
     private EntityManager em;
 
-    public String getTermsOfServiceById(int id){
-        return em.find(TermsOfService.class, id).getTermsOfService();
+    public TermsOfService getTermsOfServiceById(int id){
+        return em.find(TermsOfService.class, id);
     }
 }

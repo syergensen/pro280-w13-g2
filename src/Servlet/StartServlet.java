@@ -61,7 +61,7 @@ public class StartServlet extends HttpServlet {
                 user = new User();
                 user.setName(username);
                 user.setPassword(Encryption.digest(DUMMY_PASSWORD, EncryptionType.MD5));
-                Set<Group> groups = new HashSet<Group>();
+                Set<Group> groups = new HashSet<>();
                 groups.add(group);
                 user.setGroups(groups);
                 userManager.saveUser(user);
@@ -78,7 +78,8 @@ public class StartServlet extends HttpServlet {
 
             request.login(username, DUMMY_PASSWORD);
 
-            //request.setAttribute("tos", termsOfServiceManager.getTermsOfServiceById(0));
+//            String tos = termsOfServiceManager.getTermsOfServiceById(1).getTermsOfService();
+//            request.setAttribute("tos", tos);
 
             response.sendRedirect(request.getContextPath());
 
@@ -90,7 +91,10 @@ public class StartServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        if (request.getParameter("agreeToTOS").equals("off"))
+        String agreed = request.getParameter("agreeToTOS");
+        if (agreed == null)
+            response.sendRedirect(request.getContextPath());
+        if (agreed.equals("off"))
             response.sendRedirect(request.getContextPath());
 
         response.sendRedirect(request.getContextPath() + "/SchoolEnrollment");

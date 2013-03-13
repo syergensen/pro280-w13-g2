@@ -21,6 +21,6 @@ public class ResultsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("Results/Results.jsp");
+        request.getRequestDispatcher("Results/Results.jsp").forward(request,response);
     }
 }
