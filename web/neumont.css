@@ -58,7 +58,7 @@ A:link, .link
 {
     cursor: pointer;
     color: #EA9919;
-    text-decoration: underline;
+    text-decoration: none;
 }
 A:visited
 {
