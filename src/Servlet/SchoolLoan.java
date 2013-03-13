@@ -22,9 +22,10 @@ import java.io.IOException;
 public class SchoolLoan extends HttpServlet{
     //Class will be used to calculate the financial information based on the input
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        String loanRatio = request.getParameter("fundingRatio");
+
+        String loanRatio = request.getParameter("slider");
         int max = 100;
-        int oopAmount = 100 - (Integer.valueOf(request.getParameter("fundingRatio")));
+        int oopAmount = max - (Integer.valueOf(request.getParameter("slider")));
         String oopRatio = Integer.toString(oopAmount);
 
         String[] loanAmounts = request.getParameterValues("loanAmount");

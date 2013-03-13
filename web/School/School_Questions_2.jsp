@@ -26,7 +26,8 @@
         <div id="startQrtResponse" align="left">
                 Note: Left is Loan, Right is Out of Pocket</br>
                 <div name="fundingRatio">
-                    <input name="slider" id="slider" type="range"  min="0" max="100" value="50"/>
+                    <input name="slider" id="slider" type="range"  min="0" max="100" value="50" step="25" onchange="showFundingRatio(this.value)"/>
+                    <span id="fundingRatioValue">50/50</span>
                 </div>
         </div>
         <div id="programQuestion" align="left">5) What loans do you have?</div>
@@ -54,3 +55,10 @@
 <jsp:include page="/Page_Template/footer.jsp"/>
 </body>
 </html>
+<script>
+    function showFundingRatio(loanAmount){
+
+        var loanAmountValue = loanAmount.valueOf()
+        document.getElementById("fundingRatioValue").innerHTML = loanAmount + "/" + (100-loanAmountValue).toString();
+    }
+</script>

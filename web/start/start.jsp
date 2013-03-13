@@ -27,11 +27,20 @@
                     <textarea id="tosTextArea" readonly="true" rows="10" cols="50">
                         ${tos}
                     </textarea> <br/>
-                    <input id="agreeToTOS" name="agreeToTOS" type="checkbox"/> I have read and agree to the Terms of Service
+                    <input id="agreeToTOS" name="agreeToTOS" type="checkbox" onchange="enableSubmission()"/> I have read and agree to the Terms of Service
                 </div>
-                <input id="tosSubmit" type="submit" value="Begin"/>
+                <input id="tosSubmit" type="submit" value="Begin" disabled="disabled"/>
             </form>
         </div>
         <jsp:include page="/Page_Template/footer.jsp"/>
     </body>
 </html>
+<script>
+    function enableSubmission(){
+
+        if(document.getElementById("tosSubmit").disabled == true)
+            document.getElementById("tosSubmit").disabled = false;
+        else
+            document.getElementById("tosSubmit").disabled = true;
+    }
+</script>
