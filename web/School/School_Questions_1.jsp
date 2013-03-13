@@ -17,7 +17,6 @@
     <jsp:include page="/Page_Template/dynamicExtendedStay.jsp"/>
     <jsp:include page="/Page_Template/header.jsp"/>
     <div id="contentWrapper1">
-
     <form action="SchoolEnrollment" method="POST">
     <div align="center">
        <h1>Welcome to Project Jabberwocky</h1>
@@ -27,17 +26,16 @@
             <div id="startQrtResponse" align="left">
                 <select name="quarterStart">
                     <option value="summer">Summer Quarter</option>
-                    <option value="fall">Fall Quarter</option>
+                    <option value="fall" selected="selected">Fall Quarter</option>
                 </select>
-                <!--Static values for now, will be filled in by database entries later-->
             </div>
             <div id="programQuestion" align="left">2) What program are you taking?</div>
             <div id="programResponse" align="left">
                 <select name="programSelect">
-                <option value="bscs">BSCS</option> 
-                <option value="bstm">BSTM</option>
-                <option value="bsgd">BSGD</option>
-                <option value="bswd">BSWD</option>
+                    <option value="bscs" selected="selected">BSCS</option>
+                    <option value="bstm">BSTM</option>
+                    <option value="bsgd">BSGD</option>
+                    <option value="bswd">BSWD</option>
                 </select>
                 <!--Static values for now, will be filled in by database entries later-->
             </div>
@@ -47,8 +45,8 @@
                        <input type="checkbox" name="extendedStay" id="extendedStay"/>Yes
                    </div></br>
                    <div id="extendedFullTime" style="display:none">
-                       Full Time:<select name="extraFullQuarters" selected="1">
-                           <option value="0">0</option>
+                       Full Time:<select name="extraFullQuarters">
+                           <option value="0" selected="selected">0</option>
                            <option value="1">1</option>
                            <option value="2">2</option>
                            <option value="3">3</option>
@@ -62,8 +60,8 @@
                        </select>(Taking 12 Credits or More)
                    </div></br>
                    <div id="extendedPartTime" style="display:none">
-                       Part Time:<select name="extraPartQuarters" selected="0">
-                           <option value="0">0</option>
+                       Part Time:<select name="extraPartQuarters">
+                           <option value="0" selected="selected">0</option>
                            <option value="1">1</option>
                            <option value="2">2</option>
                            <option value="3">3</option>

@@ -27,8 +27,6 @@ public class SchoolEnrollment extends HttpServlet
         String programSelect = request.getParameter("programSelect");
         String extendedStay = request.getParameter("extendedStay");
 
-
-
         int extendedFullTime;
         int extendedPartTime;
         if(extendedStay == null){

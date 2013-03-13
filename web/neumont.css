@@ -1,51 +1,164 @@
-body
+/*This file has styles you'd like to share with all websites that use this student look*/
+BODY
 {
-    font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     font-size: 13px;
-    line-height: 0;
+    line-height: 1.2em;
     color: #333333;
-    background-color: #333333;
+    background-color: #000000;
     margin: 0px;
 }
-a:link, .link
+/*IE needs this to make the font inside a table be the same
+size as the one specified in the body class; stupid.*/
+TABLE
+{
+    font-size: 100%;
+}
+TH
+{
+    font-weight: bold;
+}
+H1, H2, H3, H4, H5, H6
+{
+    text-transform: none;
+    font-weight: normal;
+}
+H1
+{
+    color: #EA9919;
+    font-size: 210%;
+    margin: 30px 0;
+}
+H2
+{
+    font-size: 130%;
+    font-weight: bold;
+}
+H3
+{
+    font-size: 13px;
+}
+H5
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+}
+SPAN.h2
+{
+    font-size: 130%;
+    font-weight: bold;
+}
+SPAN.headerLink
+{
+    font-size: 75%;
+}
+A:link, .link
 {
     cursor: pointer;
-    color: #ea9919;
+    color: #EA9919;
     text-decoration: underline;
 }
-a:visited
+A:visited
 {
-    color: #ea9919;
+    color: #EA9919;
 }
-a:hover
+A:hover
 {
     text-decoration: none;
 }
-div#nav1{
-    background-color:#000000;
-}
-
-div#contentWrapper1
+A:active
 {
-    background: #DFDFDF repeat-y center;
 }
-
-div#menu1, div#footer
+UL
 {
-    background: #FF0
+}
+OL
+{
+    list-style: decimal outside;
+}
+DIV.centerContent
+{
+}
+.small
+{
+    color: #333333;
+    font-size: 10px;
+    line-height: 1.2em;
+}
+IMG
+{
+    border: 0px;
+}
+DIV#menu1, DIV#menu2, DIV#contentWrapper3, DIV#footer
+{
     padding: 0;
     width: 980px;
+    margin: 0 auto;
+    border-top-width: 1px;
+    /*2010-08-31 pliska: Hate leaving this line here here but I'm on a deadline. If removed, the secondary nav bar becomes taller on some steps*/
+    border-right-width: 0;
+    /*see note above*/
+    border-bottom-width: 0;
+    /*see note above*/
+    border-left-width: 0;
+    /*see note above*/
+    border-style: dashed;
+    /*see note above*/
+    border-color: transparent;
+    /*see note above*/
 }
-div#menu1
+DIV#menu1, DIV#menu2
 {
     height: 36px;
 }
-div#footer
+DIV#menu2
+{
+    text-align: center;
+}
+DIV#logout
+{
+    padding: 0px;
+    /*+placement:shift 1149px -28px;*/
+    position: relative;
+    left: 1149px;
+    top: -28px;
+    position: absolute;
+    top: 13px;
+    right: 45px;
+    /*position: relative;
+    left: 1149px;
+    top: -28px;*/
+}
+DIV#menu2Wrapper
+{
+    background: #434343 repeat-x top;
+}
+DIV#mainContent
+{
+    width: 725px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+DIV#contentWrapper1
+{
+    background: #DFDFDF  repeat-y center;
+}
+DIV#contentWrapper2
+{
+    background: transparent no-repeat center top;
+    min-height: 809px;
+    max-width: 100%;
+}
+DIV#contentWrapper3
+{
+}
+DIV#footer
 {
     font-size: 12px;
-    color: #ea9919;
+    color: #656565;
+    padding: 20px 0;
 }
-div#footer h3
+DIV#footer H3
 {
     color: #CCC;
     font-size: 16px;
@@ -54,18 +167,107 @@ div#footer h3
     margin-bottom: 0;
     text-transform: uppercase;
 }
-div#tos
+DIV#ftr1, DIV#ftr2
 {
-    vertical-align: 50%;
-    border: 2px solid black;
-    margin: 10px;
-    padding: 10px;
-    vertical-align: 50%;
-    width: 425px;
-    height: 200px;
+    float: left;
+    padding: 0 25px;
 }
-
-div#startContent
+DIV#ftr1
 {
-    padding: 10px;
+    width: 750px;
+}
+DIV#footer DIV#ftr2
+{
+    width: 115px;
+}
+UL.nav
+{
+    font-size: 12px;
+    font-weight: bold;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+UL.nav LI
+{
+    color: #999999;
+    float: right;
+}
+UL.nav TABLE TR TD
+{
+    display: block;
+    line-height: 36px;
+    text-decoration: none;
+    padding: 0px 5px;
+}
+UL.nav A:link, UL.nav A:visited, UL.nav A:active
+{
+    color: #FFCC00;
+}
+UL.nav A:hover
+{
+    background: #FFCC00 repeat-x top;
+    color: #000000;
+    /*+placement:shift 0px 0px;*/
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+UL.spaced LI
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.indent
+{
+    margin-left: 20px;
+}
+SPAN.format-hint
+{
+    font-size: smaller;
+    font-family: "Courier New";
+}
+TABLE.thinBorder, TABLE.thinBorder TD, TABLE.thinBorder TH
+{
+    border-color: #333;
+    border-style: solid;
+}
+TABLE.thinBorder
+{
+    border-width: 1px 1px 0 0;
+    border-spacing: 0;
+}
+TABLE.thinBorder TD, TABLE.thinBorder TH
+{
+    border-width: 0 0 1px 1px;
+    margin: 0;
+    padding: 4px;
+}
+TABLE.fieldDislplay TH
+{
+    text-align: right;
+    font-weight: bold;
+}
+TABLE.fieldDislplay TH, TABLE.fieldDislplay TD
+{
+    padding: 4px;
+}
+TABLE.fieldEnter TH
+{
+    text-align: right;
+    font-weight: bold;
+}
+TABLE.fieldEnter TH, TABLE.fieldEnter TD
+{
+    padding: 4px;
+}
+INPUT.fTextbox
+{
+    border: 1px solid #000000;
+    padding: 4px;
+}
+.success
+{
+    color: #008000;
+    font-weight: bold;
 }
