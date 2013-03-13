@@ -15,13 +15,13 @@
     <body>
         <jsp:include page="/Page_Template/header.jsp"/>
         <div id="contentWrapper1">
-            <div id="startContent">
+            <div id="textBounds">
                 Tool Description:<br/>
                 <ul id="toolDescription">
                     <li>Financial terms and processes are confusing</li>
                     <li>Most students lack a complete understanding of loans while in school</li>
                 </ul>
-            </div>
+
             <form method="POST" action="Start">
                 <div id="tos">
                     <textarea id="tosTextArea" readonly="true" rows="10" cols="50">
@@ -31,6 +31,7 @@
                 </div>
                 <input id="tosSubmit" type="submit" value="Begin" disabled="disabled"/>
             </form>
+            </div>
         </div>
         <jsp:include page="/Page_Template/footer.jsp"/>
     </body>
