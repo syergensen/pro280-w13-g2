@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE start_options
 (
 	terms_of_service_id INT AUTO_INCREMENT PRIMARY KEY,
-	term_of_service TEXT NOT NULL,
+	terms_of_service TEXT NOT NULL,
   add_date DATETIME NOT NULL
 );
 
@@ -153,7 +153,12 @@ ADD CONSTRAINT fk_users_groups_group_id
 FOREIGN KEY (group_id) 
 REFERENCES groups (group_id);
 
-INSERT INTO start_options (term_of_service, add_date)
+CREATE VIEW vlogin AS
+SELECT u.name AS username, u.password AS password, g.name AS groupname
+FROM users u JOIN users_groups ug ON u.user_id = ug.user_id
+JOIN groups g ON ug.group_id = g.group_id;
+
+INSERT INTO start_options (terms_of_service, add_date)
 VALUES 
 (
 	'Terms and Conditions – NUBA
