@@ -15,7 +15,7 @@
     <script language="JavaScript" type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
 <body >
-    <jsp:include page="/Page_Template/dynamicExtendedStay.jsp"/>
+    <jsp:include page="/jscript/dynamicExtendedStay.jsp"/>
     <jsp:include page="/Page_Template/header.jsp"/>
     <div id="contentWrapper1">
     <form action="SchoolEnrollment" method="POST">
@@ -32,8 +32,8 @@
                     <option value="fall" selected="selected">Fall Quarter</option>
                 </select>
                 <select name="yearStart">
-                    <c:forEach var="i" begin="2003" end="2013" step="1">
-                        <option value="${i}">${i}</option>
+                    <c:forEach var="i" begin="2008" end="2013" step="1">
+                        <option value="${i}"<c:if test="${i - 2008 == 0})"> selected="selected" </c:if>>${i}</option>
                     </c:forEach>
                 </select>
             </div>
@@ -49,7 +49,6 @@
                     <option value="bsgd">BSGD</option>
                     <option value="bswd">BSWD</option>
                 </select>
-                <!--Static values for now, will be filled in by database entries later-->
             </div>
             <p>
                 <div id="extendedQuestion" align="left">

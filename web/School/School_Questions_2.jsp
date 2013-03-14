@@ -14,7 +14,7 @@
     <script language="JavaScript" type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
 <body>
-<jsp:include page="/Page_Template/dynamicLoanOOPBox.jsp"/>
+<jsp:include page="/jscript/dynamicLoanOOPBox.jsp"/>
 <jsp:include page="/Page_Template/header.jsp"/>
 <div id="contentWrapper1">
 <form action="SchoolLoan" method="POST">
@@ -67,8 +67,11 @@
 </html>
 <script>
     function showFundingRatio(loanAmount){
-
         var loanAmountValue = loanAmount.valueOf()
         document.getElementById("fundingRatioValue").innerHTML = loanAmount + "/" + (100-loanAmountValue).toString();
+
+        if(loanAmountValue == 0){
+
+        }
     }
 </script>

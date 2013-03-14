@@ -14,7 +14,6 @@ import java.util.ArrayList;
  */
 public class StudentInformation
 {
-
     private String userName;
 
     private String password;
@@ -22,6 +21,8 @@ public class StudentInformation
     private String enrollQuarter;
 
     private String program;
+
+    private int quarterAmount;
 
     private int extraPartTime;
 
@@ -31,11 +32,7 @@ public class StudentInformation
 
     private int loanRatio;
 
-    private double creditCardDebt;
-
-    private double medicalDebt;
-
-    private double otherLoanDebt;
+    private ArrayList<Loan> studentLoans = new ArrayList<Loan>();
 
     private String preferredRegion;
 
@@ -46,8 +43,6 @@ public class StudentInformation
     private double monthlyRent;
 
     private double monthlyUtilities;
-
-    private ArrayList<Loan> studentLoans = new ArrayList<Loan>();
 
     public String getUserName()
     {
@@ -89,6 +84,14 @@ public class StudentInformation
         this.program = program;
     }
 
+    public int getQuarterAmount() {
+        return quarterAmount;
+    }
+
+    public void setQuarterAmount(int quarterAmount) {
+        this.quarterAmount = quarterAmount;
+    }
+
     public int getExtraPartTime()
     {
         return extraPartTime;
@@ -127,36 +130,6 @@ public class StudentInformation
     public void setLoanRatio(int loanRatio)
     {
         this.loanRatio = loanRatio;
-    }
-
-    public double getCreditCardDebt()
-    {
-        return creditCardDebt;
-    }
-
-    public void setCreditCardDebt(double creditCardDebt)
-    {
-        this.creditCardDebt = creditCardDebt;
-    }
-
-    public double getMedicalDebt()
-    {
-        return medicalDebt;
-    }
-
-    public void setMedicalDebt(double medicalDebt)
-    {
-        this.medicalDebt = medicalDebt;
-    }
-
-    public double getOtherLoanDebt()
-    {
-        return otherLoanDebt;
-    }
-
-    public void setOtherLoanDebt(double otherLoanDebt)
-    {
-        this.otherLoanDebt = otherLoanDebt;
     }
 
     public String getPreferredRegion()

@@ -1,5 +1,6 @@
 package Servlet;
 
+import Helper.InputChecker;
 import Helper.Loan;
 import Entity.StudentInformation;
 
@@ -26,6 +27,7 @@ public class SchoolLoan extends HttpServlet{
         String loanRatio = request.getParameter("slider");
         int max = 100;
         int oopAmount = max - (Integer.valueOf(request.getParameter("slider")));
+        InputChecker validator = new InputChecker();
         String oopRatio = Integer.toString(oopAmount);
 
         String[] loanAmounts = request.getParameterValues("loanAmount");
@@ -35,24 +37,28 @@ public class SchoolLoan extends HttpServlet{
 
         int ooPAmount = Integer.valueOf(request.getParameter("oOPAmount"));
 
-        /*
-            Need to verify loan values
-         */
-
         HttpSession session = request.getSession(false);
         StudentInformation curUser = (StudentInformation) session.getAttribute("currentUser");
 
-        int loanNumbers = loanAmounts.length; //Amount of loans
+        if(ooPAmount == 100){
+            int loanAmount = 0;
+            int loanInterest = 0;
+            int firstYearlyPayment = 0;
+            int monthlyPayment = 0;
+//            curUser.set
+        }else {
+            int loanNumbers = loanAmounts.length; //Amount of loans
 
-        for(int i = 0; i < loanNumbers; i++){
-            int loanAmount = Integer.valueOf(loanAmounts[i]);
-            int loanInterest = Integer.valueOf(loanInterests[i]);
-            int firstYearlyPayment = Integer.valueOf(firstYearlyPayments[i]);
-            int monthlyPayment = Integer.valueOf(monthlyPayments[i]);
+            for(int i = 0; i < loanNumbers; i++){
+                int loanAmount = Integer.valueOf(loanAmounts[i]);
+                int loanInterest = Integer.valueOf(loanInterests[i]);
+                int firstYearlyPayment = Integer.valueOf(firstYearlyPayments[i]);
+                int monthlyPayment = Integer.valueOf(monthlyPayments[i]);
 
-            Loan loan = new Loan(loanAmount, loanInterest, firstYearlyPayment, monthlyPayment);
+                Loan loan = new Loan(loanAmount, loanInterest, firstYearlyPayment, monthlyPayment);
 
-            curUser.getStudentLoans().add(loan);
+                curUser.getStudentLoans().add(loan);
+            }
         }
 
         session.setAttribute("currentUser", curUser);

@@ -26,7 +26,7 @@ public class SchoolEnrollment extends HttpServlet
         String startQuarter = request.getParameter("quarterStart");
         String programSelect = request.getParameter("programSelect");
         String extendedStay = request.getParameter("extendedStay");
-
+        int programQuarterAmt;
         int extendedFullTime;
         int extendedPartTime;
         if(extendedStay == null){
@@ -37,21 +37,23 @@ public class SchoolEnrollment extends HttpServlet
             extendedPartTime = Integer.parseInt(request.getParameter("extendedPartTime"));
         }
 
+        if(programSelect.equals("bscs") || programSelect.equals("bstm")){
+            programQuarterAmt = 10;
+        }else {
+            programQuarterAmt = 12;
+        }
+
         HttpSession session = request.getSession(false);
         StudentInformation curStudent = (StudentInformation) session.getAttribute("currentUser");
         curStudent.setEnrollQuarter(startQuarter);
         curStudent.setProgram(programSelect);
+        curStudent.setQuarterAmount(programQuarterAmt);
         curStudent.setExtraFullTime(extendedFullTime);
         curStudent.setExtraPartTime(extendedPartTime);
 
         session.setAttribute("currentStudent", curStudent);
         String contextPath = request.getContextPath();
         response.sendRedirect(request.getContextPath() + "/SchoolLoan");
-        /*
-            Validate, if pass get cookies and retrieve student information
-            and add the information to it and restore it as a session/cookie.
-            Else, redirect back to this page and try again.
-         */
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

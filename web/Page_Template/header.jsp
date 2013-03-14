@@ -13,11 +13,8 @@
             </tr>
         </table>
     </ul>
-    <div style="float: right;">
-        <ul class="nav">
 
-
-
-        </ul>
+    <div id="logout">
+        <a href="/">Log Out</a>
     </div>
 </div>
