@@ -28,8 +28,8 @@ import Crypto.Encryption;
                 query = "SELECT u from User u")})
 public class User implements Serializable {
 
-    public static final String USER_NAME_QUERY = "edu.neumont.security.entity.User.USER_NAME_QUERY";
-    public static final String ALL_USERS_QUERY = "edu.neumont.security.entity.User.ALL_USERS_QUERY";
+    public static final String USER_NAME_QUERY = "Entity.User.USER_NAME_QUERY";
+    public static final String ALL_USERS_QUERY = "Entity.User.ALL_USERS_QUERY";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

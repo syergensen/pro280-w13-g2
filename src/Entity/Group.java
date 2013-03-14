@@ -10,7 +10,7 @@ import com.sun.org.apache.xalan.internal.xsltc.compiler.util.NamedMethodGenerato
 @NamedQuery(name = Group.GROUP_BY_GROUP_NAME_QUERY, query = "SELECT g FROM Group g where g.name = :name")
 public class Group implements Serializable {
 
-    public static final String GROUP_BY_GROUP_NAME_QUERY = "edu.neumont.security.entity.User.GROUP_BY_GROUP_NAME_QUERY";
+    public static final String GROUP_BY_GROUP_NAME_QUERY = "Entity.User.GROUP_BY_GROUP_NAME_QUERY";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
