@@ -1,7 +1,6 @@
 package Servlet;
 
 import Entity.StudentInformation;
-import Helper.HousingHelper;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,24 +22,24 @@ public class Housing extends HttpServlet
 {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        HousingHelper house;
         String housingType = request.getParameter("housing");
         String housingRent = request.getParameter("housingA");
         String housingUtility = request.getParameter("housingB");
-        String daysEatingLunch = request.getParameter("daysEatingLunch");
-        String daysEatingDinner = request.getParameter("daysEatingDinner");
-        String spentOnVideoGames = request.getParameter("spentonvideogames");
+        String spentEatingOut = request.getParameter("spentEatingOut");
+        String entertainment = request.getParameter("spentOnEntertainment");
         String savings = request.getParameter("saving");
+        String transportation = request.getParameter("transportation");
+        String spentOnEating = request.getParameter("foodPerWeek");
 
         try{
             //not sure if these will be need but here in case
         double rent = Double.parseDouble(housingRent);
         double utility = Double.parseDouble(housingUtility);
-        int daysSpentOnLunch = Integer.parseInt(daysEatingLunch);
-        int spentOnDinner = Integer.parseInt(daysEatingDinner);
-        double videoGameSpending = Double.parseDouble(spentOnVideoGames);
+        int eatingOut = Integer.parseInt(spentEatingOut);
+        double spentOnEntertainment = Double.parseDouble(entertainment);
         double savingsAmount = Double.parseDouble(savings);
-        house = new HousingHelper(housingType, rent,utility,daysSpentOnLunch,spentOnDinner,videoGameSpending, savingsAmount);
+        double spentOnTransportation = Double.parseDouble(transportation);
+        double spentOnFood= Double.parseDouble(spentOnEating);
 
             //curUser.getStudentLoans().add(loan);
             //will probably change this to use the integers but to be determined later
@@ -51,10 +50,11 @@ public class Housing extends HttpServlet
             curUser.setMonthlyRent(rent);
             session.setAttribute("currentUser", curUser);
             session.setAttribute("housingType",housingType);
-            session.setAttribute("daysEatingLunch",daysEatingLunch);
-            session.setAttribute("daysEatingDinner",daysEatingDinner);
-            session.setAttribute("spentOnVideoGames",spentOnVideoGames);
-            session.setAttribute("saving",savings);
+            session.setAttribute("eatingOut",eatingOut);
+            session.setAttribute("spentOnTransportation",spentOnTransportation);
+            session.setAttribute("spentOnEntertainment",spentOnEntertainment);
+            session.setAttribute("saving",savingsAmount);
+            session.setAttribute("spentOnFood", spentOnFood);
         }
         catch(Exception e)
         {

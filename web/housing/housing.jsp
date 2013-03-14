@@ -20,30 +20,34 @@
                     <input name="housing" type="radio" onclick="hideRent()" value="Live with family or friends for free"/> Live with family or friends for free<br/>
                     <input name="housing" type="radio" onclick="showRent()" value="Renting and apartment or similar"/> Renting and apartment or similar<br/>
                 <p>
-
-                    <div id="rentAttributes" style="display:none">
-                        a. How much do you spend monthly for rent? $<input name="housingA" type="text"/><br/>
-                        b. On average, how much per month is spent on bills $<input name="housingB"type="text"/><br/>
-                    </div>
+                    <span id="rentAttributes" style="visibility: hidden">
+                        a. How much do you spend monthly for rent? $<input name="housingA" type="text" value="0"/><br/>
+                        b. On average, how much per month is spent on bills $<input name="housingB"type="text" value="0"/><br/>
+                    </span>
                 </p>
                 <p>
-                    2. On average how many days out of the week do you eat out for lunch
+                    2. On average how much do you spend eating out each week
                 </p>
-                    <input type="range" max="7" value="0" onchange="showLunchValue(this.value)" name="daysEatingDinner"/>
+                    <input type="text" name="spentEatingOut"/>
                     <span id="lunchRange">0</span> day(s)
                 <p>
-                    3. On average how many days out of the week do you eat out for dinner?
-                </p>
-                    <input type="range" max="7" value="0" onchange="showDinnerValue(this.value)" name="daysEatingDinner"/>
-                    <span id="dinnerRange">0</span> day(s)
-                <p>
-                    4. On average how much do you spend of video games per month: $
-                    <input name="spentOnVideoGames" type="text" onclick="validateVideoGames();"/>
+                    3. On average how much do you spend on entertainment per month: $
+                    <input name="spentOnEntertainment" type="text" onclick="validateVideoGames();"/>
                 </p>
                 <p>
-                    5. How much would you like to contribute to your savings each month(you really should start saving asap): $
+                    4. How much would you like to contribute to your savings each month(you really should start saving asap): $
                     <input name="saving" type="text" onclick="validateSavings();"/>
                 </p>
+                <p>
+                    5. How much do you spend on food each week
+                    <input name="foodPerWeek" type="text"  />
+                </p>
+                <p>
+                    6.how much do you spend on transportation each week
+                    <input name="transportation" type="text" />
+                </p>
+
+                //food and transportation
                 <input name="NextStep" type="submit" value="NextStep"/>
             </form>
         </div>
@@ -52,6 +56,7 @@
     </body>
 </html>
 <script>
+
     function validateVideoGames()
     {
         var videoGames = document.forms["housingInput"]["spentOnVideoGames"].value;
@@ -87,22 +92,12 @@
         return true;
     }
 
-    function showDinnerValue(newValue)
-    {
-        document.getElementById("dinnerRange").innerHTML=newValue;
-    }
-
-    function showLunchValue(newValue)
-    {
-        document.getElementById("lunchRange").innerHTML=newValue;
-    }
-
     function showRent()
     {
-        document.getElementById("rentAttributes").setAttribute("style", "display:visible");//style.visibility = 'visible';
+        document.getElementById("rentAttributes").style.visibility = 'visible';
     }
 
     function hideRent(){
-        document.getElementById("rentAttributes").setAttribute("style", "display:none");//.style.visibility = 'hidden';
+        document.getElementById("rentAttributes").style.visibility = 'hidden';
     }
 </script>
