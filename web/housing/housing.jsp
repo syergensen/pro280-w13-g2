@@ -12,7 +12,7 @@
     <div id="contentWrapper1">
         <div id="textBounds">
             <h1>Housing</h1>
-            <form name="housingInput" method="POST" action="Housing">
+            <form name="housingInput" method="POST" action="Housing" onsubmit=" return validate()">
                 <p>
                     1. What is your housing situation? <br/>
                 </p>
@@ -27,27 +27,24 @@
                 </p>
                 <p>
                     2. On average how much do you spend eating out each week
-                </p>
-                    <input type="text" name="spentEatingOut"/>
-                    <span id="lunchRange">0</span> day(s)
+                    <input type="text" name="spentEatingOut" onchange=""/>
+                <p/>
                 <p>
                     3. On average how much do you spend on entertainment per month: $
-                    <input name="spentOnEntertainment" type="text" onclick="validateVideoGames();"/>
+                    <input name="spentOnEntertainment" type="text" onchange=""/>
                 </p>
                 <p>
                     4. How much would you like to contribute to your savings each month(you really should start saving asap): $
-                    <input name="saving" type="text" onclick="validateSavings();"/>
+                    <input name="saving" type="text" onchange=""/>
                 </p>
                 <p>
                     5. How much do you spend on food each week
-                    <input name="foodPerWeek" type="text"  />
+                    <input name="foodPerWeek" type="text" onclick="" />
                 </p>
                 <p>
                     6.how much do you spend on transportation each week
                     <input name="transportation" type="text" />
                 </p>
-
-                //food and transportation
                 <input name="NextStep" type="submit" value="NextStep"/>
             </form>
         </div>
@@ -57,12 +54,69 @@
 </html>
 <script>
 
-    function validateVideoGames()
+    function showRent()
     {
-        var videoGames = document.forms["housingInput"]["spentOnVideoGames"].value;
-        var savingsInput = document.forms["housingInput"]["saving"].value;
-        var rent = document.forms["housingInput"]["housingA"]
+        document.getElementById("rentAttributes").style.visibility = 'visible';
+    }
 
+    function hideRent(){
+        document.getElementById("rentAttributes").style.visibility = 'hidden';
+    }
+
+    function validate()
+    {
+        var savingsInput = document.forms["housingInput"]["saving"].value;
+
+
+            var radios = document.getElementsByName("housing");
+            var formValid = false;
+
+            var i = 0;
+            while (!formValid && i < radios.length)
+            {
+                if (radios[i].checked)
+                {
+                formValid = true;
+                    return true;
+                }
+                i++;
+            }
+
+        if (savingsInput==null || savingsInput=="")
+        {
+            alert("savings must be filled out");
+            return false;
+        }
+        if(savingsInput <0)
+        {
+            alert("savings cannot be negative")
+            return false;
+        }
+
+        var eatingOut = document.forms["housingInput"]["spentEatingOut"].value;
+
+        if(eatingOut==null || eatingOut=="")
+        {
+            alert("eating out must be filled out")
+            return false;
+        }
+        if(eatingOut <0)
+        {
+            alert("eating out  must be a positive number or zero")
+            return false;
+        }
+        var food = document.forms["housingInput"]["foodPerWeek"].value;
+        if (food==null || food=="")
+        {
+            alert("food must be filled out");
+            return false;
+        }
+        if(savingsInput <0)
+        {
+            alert("food cannot be negative")
+            return false;
+        }
+        var videoGames = document.forms["housingInput"]["spentOnEntertainment"].value;
         if(videoGames==null || videoGames=="")
         {
             alert("video games must be filled out")
@@ -74,30 +128,5 @@
             return false;
         }
         return true;
-    }
-
-    function validateSavings()
-    {
-        var savingsInput = document.forms["housingInput"]["savings"].value;
-        if (savingsInput==null || savingsInput=="")
-        {
-            alert("savings must be filled out");
-            return false;
-        }
-        if(savingsInput <0)
-        {
-            alert("savings cannot be negative")
-            return false;
-        }
-        return true;
-    }
-
-    function showRent()
-    {
-        document.getElementById("rentAttributes").style.visibility = 'visible';
-    }
-
-    function hideRent(){
-        document.getElementById("rentAttributes").style.visibility = 'hidden';
     }
 </script>

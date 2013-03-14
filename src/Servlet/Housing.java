@@ -31,15 +31,16 @@ public class Housing extends HttpServlet
         String transportation = request.getParameter("transportation");
         String spentOnEating = request.getParameter("foodPerWeek");
 
-        try{
+        try
+        {
             //not sure if these will be need but here in case
-        double rent = Double.parseDouble(housingRent);
-        double utility = Double.parseDouble(housingUtility);
-        int eatingOut = Integer.parseInt(spentEatingOut);
-        double spentOnEntertainment = Double.parseDouble(entertainment);
-        double savingsAmount = Double.parseDouble(savings);
-        double spentOnTransportation = Double.parseDouble(transportation);
-        double spentOnFood= Double.parseDouble(spentOnEating);
+            double rent = Double.parseDouble(housingRent);
+            double utility = Double.parseDouble(housingUtility);
+            int eatingOut = Integer.parseInt(spentEatingOut);
+            double spentOnEntertainment = Double.parseDouble(entertainment);
+            double savingsAmount = Double.parseDouble(savings);
+            double spentOnTransportation = Double.parseDouble(transportation);
+            double spentOnFood= Double.parseDouble(spentOnEating);
 
             //curUser.getStudentLoans().add(loan);
             //will probably change this to use the integers but to be determined later
