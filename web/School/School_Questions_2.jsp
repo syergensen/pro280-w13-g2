@@ -58,7 +58,7 @@
                     </p>
                 </div>
         </div>
-    <input type="submit" value="Next"/>
+    <input type="submit" value="Next" id="submitButton" />
     </div>
 </form>
 </div>

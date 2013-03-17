@@ -46,7 +46,7 @@
                     4. Please enter your desired monthly saving amount:
                     $<input type="text" name="monthlySavings" />
                 </p>
-                <input type="submit" value="Results" />
+                <input type="submit" value="Results" id="submit"/>
             </div>
         </form>
     </div>

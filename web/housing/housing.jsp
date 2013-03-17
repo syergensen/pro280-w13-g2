@@ -26,26 +26,26 @@
                     </span>
                 </p>
                 <p>
-                    2. On average how much do you spend eating out each week
+                    2. On average how much do you spend eating out each wee:k<br>
                     <input type="text" name="spentEatingOut" onchange=""/>
                 <p/>
                 <p>
-                    3. On average how much do you spend on entertainment per month: $
+                    3. On average how much do you spend on entertainment per month: <br>
                     <input name="spentOnEntertainment" type="text" onchange=""/>
                 </p>
                 <p>
-                    4. How much would you like to contribute to your savings each month(you really should start saving asap): $
+                    4. How much would you like to contribute to your savings each month(you really should start saving asap):<br>
                     <input name="saving" type="text" onchange=""/>
                 </p>
                 <p>
-                    5. How much do you spend on food each week
+                    5. How much do you spend on food each week     <br>
                     <input name="foodPerWeek" type="text" onclick="" />
                 </p>
                 <p>
-                    6.how much do you spend on transportation each week
+                    6.how much do you spend on transportation each week  <br>
                     <input name="transportation" type="text" />
                 </p>
-                <input name="NextStep" type="submit" value="NextStep"/>
+                <input name="NextStep" type="submit" value="NextStep" id="submitButton"/>
             </form>
         </div>
     </div>
@@ -76,7 +76,7 @@
             {
                 if (radios[i].checked)
                 {
-                formValid = true;
+                    formValid = true;
                     return true;
                 }
                 i++;
