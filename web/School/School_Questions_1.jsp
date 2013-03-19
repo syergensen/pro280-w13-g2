@@ -28,11 +28,11 @@
             </p>
             <div id="startQrtResponse" align="left">
                 <select name="quarterStart">
-                    <%--<c:forEach var="quarter" items="${quarterOptions}">--%>
-                        <%--<option>${quarter}</option>--%>
-                    <%--</c:forEach>--%>
-                    <option value="summer">Summer Quarter</option>
-                    <option value="fall" selected="selected">Fall Quarter</option>
+                    <c:forEach var="quarter" items="${quarters}">
+                        <option value="${quarter.quarterName}">${quarter.quarterName}</option>
+                    </c:forEach>
+                    <%--<option value="summer">Summer Quarter</option>--%>
+                    <%--<option value="fall" selected="selected">Fall Quarter</option>--%>
                 </select>
                 <select name="yearStart">
                     <c:forEach var="i" begin="2008" end="2013" step="1">
@@ -47,13 +47,13 @@
             </p>
             <div id="programResponse" align="left">
                 <select name="programSelect">
-                    <%--<c:forEach var="program" items="${programOptions}">--%>
-                        <%--<option>${program}</option>--%>
-                    <%--</c:forEach>--%>
-                    <option value="bscs" selected="selected">BSCS</option>
-                    <option value="bstm">BSTM (BTOM)</option>
-                    <option value="bsgd">BSGD</option>
-                    <option value="bswd">BSWD</option>
+                    <c:forEach var="program" items="${programs}">
+                        <option value="${program.programName}">${program.programName}</option>
+                    </c:forEach>
+                    <%--<option value="bscs" selected="selected">BSCS</option>--%>
+                    <%--<option value="bstm">BSTM (BTOM)</option>--%>
+                    <%--<option value="bsgd">BSGD</option>--%>
+                    <%--<option value="bswd">BSWD</option>--%>
                 </select>
             </div>
             <p>

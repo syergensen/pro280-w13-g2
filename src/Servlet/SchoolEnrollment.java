@@ -1,7 +1,10 @@
 package Servlet;
 
 import Entity.StudentInformation;
+import EntityManager.ProgramManager;
+import EntityManager.QuarterManager;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +23,11 @@ import java.io.IOException;
 @WebServlet("/SchoolEnrollment")
 public class SchoolEnrollment extends HttpServlet
 {
+    @EJB
+    private ProgramManager pm;
+
+    @EJB
+    private QuarterManager qm;
     //Class will be for generating duration of enrollment, also for calculating dates
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
@@ -57,7 +65,8 @@ public class SchoolEnrollment extends HttpServlet
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.setAttribute("programs", pm.getPrograms());
+        request.setAttribute("quarters", qm.getQuarters());
         request.getRequestDispatcher("/School/School_Questions_1.jsp").forward(request, response);
     }
 }
