@@ -15,13 +15,11 @@ public class Loan {
     int loanAmount;
     int interest;
     int interestAmount;
-    int firstYearPayment;
     int monthlyPayment;
 
-    public Loan(int loanAmt, int interestPercent, int firstYear, int monthlyPayment){
+    public Loan(int loanAmt, int interestPercent, int monthlyPayment){
         this.loanAmount = loanAmt;
         this.interest = interestPercent;
-        this.firstYearPayment = firstYear;
         this.monthlyPayment = monthlyPayment;
         calculateInterest(interestPercent, loanAmt);
     }
@@ -40,14 +38,6 @@ public class Loan {
 
     public void setInterest(int interest) {
         this.interest = interest;
-    }
-
-    public int getFirstYearPayment() {
-        return firstYearPayment;
-    }
-
-    public void setFirstYearPayment(int firstYearPayment) {
-        this.firstYearPayment = firstYearPayment;
     }
 
     public int getMonthlyPayment() {

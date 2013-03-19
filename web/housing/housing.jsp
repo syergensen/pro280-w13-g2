@@ -20,7 +20,7 @@
                     <input name="housing" type="radio" onclick="hideRent()" value="Live with family or friends for free"/> Live with family or friends for free<br/>
                     <input name="housing" type="radio" onclick="showRent()" value="Renting and apartment or similar"/> Renting and apartment or similar<br/>
                 <p>
-                    <span id="rentAttributes" style="visibility: hidden">
+                    <span id="rentAttributes" style="display:none">
                         a. How much do you spend monthly for rent? $<input name="housingA" type="text" value="0"/><br/>
                         b. On average, how much per month is spent on bills $<input name="housingB"type="text" value="0"/><br/>
                     </span>
@@ -56,11 +56,11 @@
 
     function showRent()
     {
-        document.getElementById("rentAttributes").style.visibility = 'visible';
+        document.getElementById("rentAttributes").setAttribute("style", "display:visible");
     }
 
     function hideRent(){
-        document.getElementById("rentAttributes").style.visibility = 'hidden';
+        document.getElementById("rentAttributes").setAttribute("style", "display:none");
     }
 
     function validate()

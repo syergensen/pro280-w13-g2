@@ -30,7 +30,6 @@ public class SchoolLoan extends HttpServlet{
 
         String[] loanAmounts = request.getParameterValues("loanAmount");
         String[] loanInterests = request.getParameterValues("loanInterest");
-        String[] firstYearlyPayments = request.getParameterValues("firstYearMonthly");
         String[] monthlyPayments = request.getParameterValues("monthlyPayment");
 
         int ooPAmount = Integer.valueOf(request.getParameter("oOPAmount"));
@@ -41,7 +40,6 @@ public class SchoolLoan extends HttpServlet{
         if(ooPAmount == 100){
             int loanAmount = 0;
             int loanInterest = 0;
-            int firstYearlyPayment = 0;
             int monthlyPayment = 0;
             curUser.setOutOfPocket(ooPAmount);
         }else {
@@ -50,9 +48,8 @@ public class SchoolLoan extends HttpServlet{
             for(int i = 0; i < loanNumbers; i++){
                 int loanAmount = Integer.valueOf(loanAmounts[i]);
                 int loanInterest = Integer.valueOf(loanInterests[i]);
-                int firstYearlyPayment = Integer.valueOf(firstYearlyPayments[i]);
                 int monthlyPayment = Integer.valueOf(monthlyPayments[i]);
-                Loan loan = new Loan(loanAmount, loanInterest, firstYearlyPayment, monthlyPayment);
+                Loan loan = new Loan(loanAmount, loanInterest, monthlyPayment);
                 curUser.getStudentLoans().add(loan);
             }
         }
