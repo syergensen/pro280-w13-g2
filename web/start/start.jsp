@@ -16,6 +16,7 @@
         <jsp:include page="/Page_Template/header.jsp"/>
         <div id="contentWrapper1">
             <div id="textBounds">
+                <h1>N.U.B.A</h1>
                 Tool Description:<br/>
                 <ul id="toolDescription">
                     <li>Financial terms and processes are confusing</li>
@@ -24,10 +25,10 @@
 
             <form method="POST" action="Start">
                 <div id="tos">
-                    <textarea id="tosTextArea" readonly="true" rows="10" cols="50">
-                        ${tos}
+                    <textarea id="tosTextArea" readonly="true" rows="25" cols="70" wrap="hard">
+                        ${sessionScope.tos}
                     </textarea> <br/>
-                    <input id="agreeToTOS" name="agreeToTOS" type="checkbox" onchange="enableSubmission()"/> I have read and agree to the Terms of Service
+                    <input id="agreeToTOS" name="agreeToTOS" type="checkbox" onchange="enableSubmission()" required="required"/> I have read and agree to the Terms of Service
                 </div>
                 <input id="tosSubmit" type="submit" value="Begin" disabled="disabled"/>
             </form>

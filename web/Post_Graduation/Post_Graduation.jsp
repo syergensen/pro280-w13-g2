@@ -23,22 +23,23 @@
                 <p>
                     1.  After graduating Neumont, what is your preferred region to live in the United States:
                     <select name="regionOption">
-                        <c:forEach var="region" items="${regionOptions}">
-                            <option>${region}</option>
+                        <c:forEach var="region" items="${sessionScope.regionOptions}">
+                            <option>${region.name}</option>
                         </c:forEach>
                     </select>
                 </p>
                 <p>
-                    2.  Please describe your preferred car:
-                        <c:forEach var="carOption" items="${carOptions}">
-                            <input type="radio" name="carOptions" value="${carOption}"/>${carOption}</option>
+                    2.  Please describe your preferred car: <br/>
+                        <c:forEach var="carOption" items="${sessionScope.carOptions}">
+                            <input type="radio" name="carOptions" value="${carOption.option}">${carOption.option}</option>
+                            <br/>
                         </c:forEach>
                 </p>
                 <p>
                     3.  Please describe your preferred house:
                     <select name="housingOption">
-                        <c:forEach var="housingOption" items="${housingOptions}">
-                            <option>${housingOption}</option>
+                        <c:forEach var="housingOption" items="${sessionScope.housingOptions}">
+                            <option>${housingOption.option}</option>
                         </c:forEach>
                     </select>
                 </p>

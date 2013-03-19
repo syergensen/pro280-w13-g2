@@ -29,6 +29,8 @@ public class StudentResults
 
     public int totalLoans;
 
+    public int outOfPocket;
+
 
     public int getTotalLoans()
     {

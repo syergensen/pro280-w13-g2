@@ -46,8 +46,11 @@ public class StartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            String username = request.getParameter("username");
-            String role = request.getParameter("role");
+//            String username = request.getParameter("username");
+//            String role = request.getParameter("role");
+
+            String username = "brdegenaars";
+            String role = "student";
 
             Group group = groupManager.getGroup(role);
             if(group == null) {
@@ -78,8 +81,8 @@ public class StartServlet extends HttpServlet {
 
             request.login(username, DUMMY_PASSWORD);
 
-//            String tos = termsOfServiceManager.getTermsOfServiceById(1).getTermsOfService();
-//            request.setAttribute("tos", tos);
+            String tos = termsOfServiceManager.getTermsOfServiceById(1).getTermsOfService();
+            currentSession.setAttribute("tos", tos);
 
             response.sendRedirect(request.getContextPath());
 

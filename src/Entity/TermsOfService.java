@@ -19,7 +19,7 @@ public class TermsOfService {
     @Column(name = "terms_of_service_id", unique = true, nullable = false)
     private int termsOfServiceId;
 
-    @Column(name = "terms_of_service", nullable = false)
+    @Column(name = "term_of_service", nullable = false)
     private String termsOfService;
 
     public String getTermsOfService() {

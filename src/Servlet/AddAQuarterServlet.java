@@ -10,17 +10,17 @@ import java.io.IOException;
 /**
  * Created with IntelliJ IDEA.
  * User: brdegenaars
- * Date: 3/12/13
- * Time: 1:11 PM
+ * Date: 3/19/13
+ * Time: 4:20 PM
  * To change this template use File | Settings | File Templates.
  */
-@WebServlet("/Results")
-public class ResultsServlet extends HttpServlet {
+@WebServlet("/AddAQuarter")
+public class AddAQuarterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/Results/Results.jsp").forward(request,response);
+        response.sendRedirect(request.getContextPath() + "/PostGraduation");
     }
 }

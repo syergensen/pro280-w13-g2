@@ -21,7 +21,7 @@
             <table id="resultsLayoutTable">
                 <tr>
                     <td id="resultsLeftMargin">
-                        <form action="AddAQuarter" method="POST">
+                        <form action="AddAQuarter" method="GET">
                             <input type="submit" value="+1 Quarter"/>
                         </form>
                     </td>

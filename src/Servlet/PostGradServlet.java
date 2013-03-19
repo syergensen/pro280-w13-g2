@@ -1,8 +1,14 @@
 package Servlet;
 
+import Entity.PostGraduationCar;
+import Entity.PostGraduationRegion;
 import Entity.StudentInformation;
 import Entity.StudentResults;
+import EntityManager.PostGraduationCarManager;
+import EntityManager.PostGraduationHousingManager;
+import EntityManager.PostGraduationRegionManager;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +26,16 @@ import java.io.IOException;
  */
 @WebServlet("/PostGraduation")
 public class PostGradServlet extends HttpServlet {
+
+    @EJB
+    PostGraduationRegionManager regionManager;
+
+    @EJB
+    PostGraduationCarManager carManager;
+
+    @EJB
+    PostGraduationHousingManager housingManager;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String regionSelection = request.getParameter("regionOption");
@@ -41,11 +57,16 @@ public class PostGradServlet extends HttpServlet {
         results.setUserName(currentUser.getUserName());
         //results.
 
-
         response.sendRedirect(request.getContextPath() + "/Results");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        HttpSession currentSession = request.getSession();
+        currentSession.setAttribute("regionOptions", regionManager.getRegionOptions());
+        currentSession.setAttribute("carOptions", carManager.getAllCarOptions());
+        currentSession.setAttribute("housingOptions", housingManager.getAllPostGraduationOptinos());
+
         request.getRequestDispatcher("/Post_Graduation/Post_Graduation.jsp").forward(request, response);
     }
 }
