@@ -32,6 +32,8 @@ public class StudentInformation
 
     private int loanRatio;
 
+    private int outOfPocket;
+
     private ArrayList<Loan> studentLoans = new ArrayList<Loan>();
 
     private String preferredRegion;
@@ -180,6 +182,14 @@ public class StudentInformation
     public void setMonthlyUtilities(double monthlyUtilities)
     {
         this.monthlyUtilities = monthlyUtilities;
+    }
+
+    public int getOutOfPocket() {
+        return outOfPocket;
+    }
+
+    public void setOutOfPocket(int outOfPocket) {
+        this.outOfPocket = outOfPocket;
     }
 
     public ArrayList<Loan> getStudentLoans() {

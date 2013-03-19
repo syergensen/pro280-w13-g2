@@ -1,6 +1,5 @@
 package Servlet;
 
-import Helper.InputChecker;
 import Helper.Loan;
 import Entity.StudentInformation;
 
@@ -27,7 +26,6 @@ public class SchoolLoan extends HttpServlet{
         String loanRatio = request.getParameter("slider");
         int max = 100;
         int oopAmount = max - (Integer.valueOf(request.getParameter("slider")));
-        InputChecker validator = new InputChecker();
         String oopRatio = Integer.toString(oopAmount);
 
         String[] loanAmounts = request.getParameterValues("loanAmount");
@@ -45,7 +43,7 @@ public class SchoolLoan extends HttpServlet{
             int loanInterest = 0;
             int firstYearlyPayment = 0;
             int monthlyPayment = 0;
-//            curUser.set
+            curUser.setOutOfPocket(ooPAmount);
         }else {
             int loanNumbers = loanAmounts.length; //Amount of loans
 
@@ -54,9 +52,7 @@ public class SchoolLoan extends HttpServlet{
                 int loanInterest = Integer.valueOf(loanInterests[i]);
                 int firstYearlyPayment = Integer.valueOf(firstYearlyPayments[i]);
                 int monthlyPayment = Integer.valueOf(monthlyPayments[i]);
-
                 Loan loan = new Loan(loanAmount, loanInterest, firstYearlyPayment, monthlyPayment);
-
                 curUser.getStudentLoans().add(loan);
             }
         }

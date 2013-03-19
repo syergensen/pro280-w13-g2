@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Jabberwocky - Loans</title>
@@ -42,10 +43,9 @@
                 <div id="programResponse" align="left">
                     <div id="loanInfoContainer">
                         <div id="loanInfo1">
-                            Loan Amount:<input type="number" name="loanAmount" value="0"/>
-                            Loan Interest:<input type="number" name="loanInterest" value="0"/>
-                            First Year Monthly Payment:<input type="number" name="firstYearMonthly" value="0"/>
-                            Monthly Payment:<input type="number" name="monthlyPayment" value="0"/></br>
+                            Loan Amount:<input type="number" id="loanAmount" name="loanAmount" value="0" min="0" onkeypress="return isNumberEntry(event)"/>
+                            Loan Interest:<input type="number" id="loanInterest" name="loanInterest" value="0" min="0" onkeypress="return isNumberEntry(event)"/>
+                            Monthly Payment:<input type="number" id="monthlyPayment" name="monthlyPayment" value="0" min="0" onkeypress="return isNumberEntry(event)"/></br>
                         </div>
                     </div>
                     <input type="button" value="Add Loan"id="addLoanButton"/>
@@ -53,7 +53,7 @@
                     </br>
                     <p>
                         <div id="oOPInfoContainer">
-                                Out of Pocket Amount:<input type="number" name="oOPAmount" value="0"/>
+                                Out of Pocket Amount:<input type="number" id="oOPAmount"  name="oOPAmount" value="0" min="0" onkeypress="return isNumberEntry(event)"/>
                         </div>
                     </p>
                 </div>
@@ -70,8 +70,38 @@
         var loanAmountValue = loanAmount.valueOf()
         document.getElementById("fundingRatioValue").innerHTML = loanAmount + "/" + (100-loanAmountValue).toString();
 
+        var loanAmounts = document.getElementsByName("loanAmount");
+        var numAmount = loanCounter;
         if(loanAmountValue == 0){
-
+            //Do nothing to the loans.
+            document.getElementById("oOPAmount").disabled = true;
         }
+        if (loanAmountValue == 100){
+            for(var i = numAmount; i > 1; i--){
+                $("#loanInfo" + i).remove();
+            }
+            loanCounter = 2;
+            document.getElementById("loanAmount").disabled = true;
+            document.getElementById("loanInterest").disabled = true;
+            document.getElementById("monthlyPayment").disabled = true;
+            document.getElementById("addLoanButton").disabled = true;
+            document.getElementById("removeLoanButton").disabled = true;
+            document.getElementById("oOPAmount").disabled = false;
+        }
+        if(loanAmountValue != 0 && loanAmountValue != 100){
+            document.getElementById("loanAmount").disabled = false;
+            document.getElementById("loanInterest").disabled = false;
+            document.getElementById("monthlyPayment").disabled = false;
+            document.getElementById("addLoanButton").disabled = false;
+            document.getElementById("removeLoanButton").disabled = false;
+            document.getElementById("oOPAmount").disabled = false;
+        }
+    }
+
+    function isNumberEntry(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if(charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
     }
 </script>

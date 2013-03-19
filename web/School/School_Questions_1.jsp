@@ -28,6 +28,9 @@
             </p>
             <div id="startQrtResponse" align="left">
                 <select name="quarterStart">
+                    <%--<c:forEach var="quarter" items="${quarterOptions}">--%>
+                        <%--<option>${quarter}</option>--%>
+                    <%--</c:forEach>--%>
                     <option value="summer">Summer Quarter</option>
                     <option value="fall" selected="selected">Fall Quarter</option>
                 </select>
@@ -44,6 +47,9 @@
             </p>
             <div id="programResponse" align="left">
                 <select name="programSelect">
+                    <%--<c:forEach var="program" items="${programOptions}">--%>
+                        <%--<option>${program}</option>--%>
+                    <%--</c:forEach>--%>
                     <option value="bscs" selected="selected">BSCS</option>
                     <option value="bstm">BSTM (BTOM)</option>
                     <option value="bsgd">BSGD</option>
