@@ -21,29 +21,29 @@
                     <input name="housing" type="radio" onclick="showRent()" value="Renting and apartment or similar"/> Renting and apartment or similar<br/>
                 <p>
                     <span id="rentAttributes" style="display:none">
-                        a. How much do you spend monthly for rent? $<input name="housingA" type="text" value="0"/><br/>
-                        b. On average, how much per month is spent on bills $<input name="housingB"type="text" value="0"/><br/>
+                        a. How much do you spend monthly for rent? $<input name="housingA" type="number" min="0"/><br/>
+                        b. On average, how much per month is spent on bills $<input name="housingB"type="number" min="0" value="0"/><br/>
                     </span>
                 </p>
                 <p>
                     2. On average how much do you spend eating out each wee:k<br>
-                    <input type="text" name="spentEatingOut" onchange=""/>
+                    <input type="number" min="0" name="spentEatingOut" onchange=""/>
                 <p/>
                 <p>
                     3. On average how much do you spend on entertainment per month: <br>
-                    <input name="spentOnEntertainment" type="text" onchange=""/>
+                    <input name="spentOnEntertainment" type="number" min="0" />
                 </p>
                 <p>
                     4. How much would you like to contribute to your savings each month(you really should start saving asap):<br>
-                    <input name="saving" type="text" onchange=""/>
+                    <input name="saving" type="number" min="0" />
                 </p>
                 <p>
                     5. How much do you spend on food each week     <br>
-                    <input name="foodPerWeek" type="text" onclick="" />
+                    <input name="foodPerWeek" type="number" min="0" />
                 </p>
                 <p>
                     6.how much do you spend on transportation each week  <br>
-                    <input name="transportation" type="text" />
+                    <input name="transportation" type="number" min="0"/>
                 </p>
                 <input name="NextStep" type="submit" value="NextStep" id="submitButton"/>
             </form>
