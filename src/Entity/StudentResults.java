@@ -29,17 +29,54 @@ public class StudentResults
 
     public int totalLoans;
 
+    public int loanMonthly;
+
     public int outOfPocket;
 
+    private int quarterTuition = 7200;
+    private int interest = 6;
 
     public int getTotalLoans()
     {
         return totalLoans;
     }
 
-    public void setTotalLoans(int totalLoans)
+    public void setTotalLoans(int fullQtr, int partQtr, int additionalLoan)
     {
-        this.totalLoans = totalLoans;
+        this.totalLoans = (quarterTuition * fullQtr) + ((quarterTuition/2) * partQtr) + additionalLoan;
+    }
+
+    public int getLoanMonthly()
+    {
+        return loanMonthly;
+    }
+
+    /*
+        http://www.ehow.com/how_6233951_calculate-student-loan-payment.html
+        interest = 6%
+
+        .06/12 = .005 = monthlyInterest
+
+        1+.005 = 1.005
+
+        1.005^(-120) = .5496327
+
+        1 - .5496327 = .4503672
+
+        LoanAmt * .005 = someNum
+
+        someNum / .4503672 = monthlyPayment + additionalLoanMonthlyPayment
+     */
+    //Call after totalloans is calculated, and totalloan in
+    public void setLoanMonthly(int loanAmt, int additionalMonthlyPayment)
+    {
+        double monthlyInterest = (interest/100)/12;
+        double temp = 1 + monthlyInterest;
+        double calculatedNum = Math.pow(temp, -120);
+        double oppositeCalNum = 1 - calculatedNum;
+        double payment = loanAmt * monthlyInterest;
+        double monthlyPayment = (payment / oppositeCalNum);
+        loanMonthly = ((int) monthlyPayment + additionalMonthlyPayment);
     }
 
     public String getUserName()
