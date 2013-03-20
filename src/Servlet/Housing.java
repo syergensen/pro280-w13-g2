@@ -22,6 +22,8 @@ public class Housing extends HttpServlet
 {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        double rent;
+        double utility;
         String housingType = request.getParameter("housing");
         String housingRent = request.getParameter("housingA");
         String housingUtility = request.getParameter("housingB");
@@ -33,9 +35,23 @@ public class Housing extends HttpServlet
 
         try
         {
-            //not sure if these will be need but here in case
-            double rent = Double.parseDouble(housingRent);
-            double utility = Double.parseDouble(housingUtility);
+            //not sure if these will be need but here in
+            if(housingRent != null || !"".equals(housingRent) )
+            {
+                rent = Double.parseDouble(housingRent);
+            }
+            else
+            {
+                rent = 0;
+            }
+            if(housingUtility != null || !"".equals(housingUtility))
+            {
+                utility = Double.parseDouble(housingUtility);
+            }
+            else
+            {
+                utility = 0;
+            }
             int eatingOut = Integer.parseInt(spentEatingOut);
             double spentOnEntertainment = Double.parseDouble(entertainment);
             double savingsAmount = Double.parseDouble(savings);

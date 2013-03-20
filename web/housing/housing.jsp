@@ -21,13 +21,13 @@
                     <input name="housing" type="radio" onclick="showRent()" value="Renting and apartment or similar"/> Renting and apartment or similar<br/>
                 <p>
                     <span id="rentAttributes" style="display:none">
-                        a. How much do you spend monthly for rent? $<input name="housingA" type="number" min="0"/><br/>
+                        a. How much do you spend monthly for rent? $<input name="housingA" type="number" min="0" /><br/>
                         b. On average, how much per month is spent on bills $<input name="housingB"type="number" min="0" value="0"/><br/>
                     </span>
                 </p>
                 <p>
-                    2. On average how much do you spend eating out each wee:k<br>
-                    <input type="number" min="0" name="spentEatingOut" onchange=""/>
+                    2. On average how much do you spend eating out each week<br>
+                    <input type="number" min="0" name="spentEatingOut" value="${spentEatingOut}" />
                 <p/>
                 <p>
                     3. On average how much do you spend on entertainment per month: <br>
@@ -61,6 +61,8 @@
 
     function hideRent(){
         document.getElementById("rentAttributes").setAttribute("style", "display:none");
+        document.forms["housingInput"]["housingA"].value = '';
+        document.forms["housingInput"]["housingB"].value = '';
     }
 
     function validate()
@@ -68,19 +70,19 @@
         var savingsInput = document.forms["housingInput"]["saving"].value;
 
 
-            var radios = document.getElementsByName("housing");
-            var formValid = false;
+        var radios = document.getElementsByName("housing");
+        var formValid = false;
 
-            var i = 0;
-            while (!formValid && i < radios.length)
+        var i = 0;
+        while (!formValid && i < radios.length)
+        {
+            if (radios[i].checked)
             {
-                if (radios[i].checked)
-                {
-                    formValid = true;
-                    return true;
-                }
-                i++;
+                formValid = true;
+                return true;
             }
+            i++;
+        }
 
         if (savingsInput==null || savingsInput=="")
         {
@@ -127,6 +129,13 @@
             alert("video games must be a positive number or zero")
             return false;
         }
+        return true;
+    }
+
+    function isNumberEntry(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if(charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
         return true;
     }
 </script>
