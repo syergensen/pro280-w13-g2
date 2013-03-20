@@ -17,7 +17,15 @@ public class Program {
     @Column(name = "program_name")
     private String programName;
 
+    @Column(name = "starting_salary")
+    private Integer startingSalary;
+
     public String getProgramName() {
         return programName;
     }
+
+    public Integer getStartingSalary(){
+        return startingSalary;
+    }
+
 }

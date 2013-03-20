@@ -27,4 +27,8 @@ public class ProgramManager {
         TypedQuery<Program> ProgramQuery = em.createQuery("SELECT p FROM Program p", Program.class);
         return ProgramQuery.getResultList();
     }
+
+//    public Integer getStartingSalary(){
+//
+//    }
 }

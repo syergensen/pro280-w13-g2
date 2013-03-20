@@ -17,10 +17,31 @@ public class PostGraduationCar {
     public static final String ALL_CAR_OPTIONS_QUERY = "Entity.PostGraduationCar.ALL_CAR_OPTIONS_QUERY";
 
     @Id
-    @Column(name = "car_option", unique = true, nullable = false)
-    private String option;
+    @Column(name = "car_type", unique = true, nullable = false)
+    private String carType;
 
-    public String getOption() {
-        return option;
+    @Column(name="car_quality")
+    private String carQuality;
+
+    @Column(name="price")
+    private int price;
+
+    @Column(name="fuel_price")
+    private int fuelPrice;
+
+    public String getCarType() {
+        return carType;
+    }
+
+    public String getCarQuality() {
+        return carQuality;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getFuelPrice() {
+        return fuelPrice;
     }
 }
