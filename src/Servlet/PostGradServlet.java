@@ -1,7 +1,5 @@
 package Servlet;
 
-import Entity.PostGraduationCar;
-import Entity.PostGraduationRegion;
 import Entity.StudentInformation;
 import Entity.StudentResults;
 import EntityManager.PostGraduationCarManager;
@@ -39,14 +37,20 @@ public class PostGradServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String regionSelection = request.getParameter("regionOption");
-        String carSelection = request.getParameter("carOptions");
+        String carType = request.getParameter("carType");
+        String carQuality = request.getParameter("carQuality");
+        String carInterestRateLiteral = request.getParameter("carInterestRate");
         String housingSelection = request.getParameter("housingOption");
+
+        int carInterestRate = Integer.parseInt(carInterestRateLiteral);
 
         HttpSession currentSession = request.getSession();
         StudentInformation currentUser = (StudentInformation)currentSession.getAttribute("currentUser");
 
         currentUser.setPreferredRegion(regionSelection);
-        currentUser.setPreferredCar(carSelection);
+        currentUser.setPreferredCarType(carType);
+        currentUser.setPreferredCarQuality(carQuality);
+        currentUser.setCarInterestRate(carInterestRate);
         currentUser.setPreferredHousing(housingSelection);
 
         currentSession.setAttribute("currentUser", currentUser);
@@ -55,7 +59,7 @@ public class PostGradServlet extends HttpServlet {
         StudentResults results = new StudentResults();
 
         results.setUserName(currentUser.getUserName());
-        //results.
+        results.setCarPayment(getMonthlyCarCost(currentUser.getPreferredCarType(), currentUser.getPreferredCarQuality(), carInterestRate));
 
         response.sendRedirect(request.getContextPath() + "/Results");
     }
@@ -64,9 +68,18 @@ public class PostGradServlet extends HttpServlet {
 
         HttpSession currentSession = request.getSession();
         currentSession.setAttribute("regionOptions", regionManager.getRegionOptions());
-        currentSession.setAttribute("carOptions", carManager.getAllCarOptions());
         currentSession.setAttribute("housingOptions", housingManager.getAllPostGraduationOptinos());
 
         request.getRequestDispatcher("/Post_Graduation/Post_Graduation.jsp").forward(request, response);
+    }
+
+    private int getMonthlyCarCost(String carType, String carQuality, int interestRate){
+
+        int carPrice = carManager.getCarPrice(carType, carQuality);
+        int carFuelCost = carManager.getCarFuelCost(carType, carQuality);
+
+        int monthlyCarPrice = carPrice / 12;
+
+        return (monthlyCarPrice + carFuelCost);
     }
 }

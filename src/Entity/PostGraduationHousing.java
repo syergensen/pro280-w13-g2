@@ -23,7 +23,14 @@ public class PostGraduationHousing {
     @Column(name = "housing_option", unique = true, nullable = false)
     private String option;
 
+    @Column(name = "cost")
+    private int cost;
+
     public String getOption() {
         return option;
+    }
+
+    public int getCost() {
+        return cost;
     }
 }

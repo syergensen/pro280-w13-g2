@@ -33,7 +33,7 @@ public class PostGraduationCar {
     @Column(name="price")
     private int price;
 
-    @Column(name="fuel_price")
+    @Column(name="fuel_cost")
     private int fuelPrice;
 
     public String getCarType() {

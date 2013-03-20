@@ -30,10 +30,43 @@
                 </p>
                 <p>
                     2.  Please describe your preferred car: <br/>
-                        <c:forEach var="carOption" items="${sessionScope.carOptions}">
-                            <input type="radio" name="carOptions" value="${carOption.option}">${carOption.option}</option>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="radio" name="carType" value="New car">New car</option>
+                            </td>
+                            <td>
+                                <input type="radio" name="carQuality" value="High end">High end car</option>
+                            </td>
+                            <td>
+                                <input type="radio" name="fuelEconomy" value="Above average fuel economy">Above average fuel economy</option>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="carType" value="Used car">Used car</option>
+                        </td>
+                        <td>
+                            <input type="radio" name="carQuality" value="Average car">Average car</option>
+                        </td>
+                        <td>
+                            <input type="radio" name="fuelEconomy" value="Average fuel economy">Average fuel economy</option>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="carType" value="Transit">Transit</option>
+                        </td>
+                        <td>
+                            <input type="radio" name="carQuality" value="Below average car">Below average car</option>
+                        </td>
+                        <td>
+                            <input type="radio" name="fuelEconomy" value="Below average fuel economy">Below average fuel economy</option>
+                        </td>
+                    </tr>
+                    </table>
                             <br/>
-                        </c:forEach>
+                    Car interest rate: <input type="text" name="carInterestRate"/>% <br/>
                 </p>
                 <p>
                     3.  Please describe your preferred house:

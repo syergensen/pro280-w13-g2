@@ -2,7 +2,6 @@ package Entity;
 
 import Helper.Loan;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 
 /**
@@ -38,7 +37,11 @@ public class StudentInformation
 
     private String preferredRegion;
 
-    private String preferredCar;
+    private String preferredCarType;
+
+    private String preferredCarQuality;
+
+    private int carInterestRate;
 
     private String preferredHousing;
 
@@ -144,14 +147,14 @@ public class StudentInformation
         this.preferredRegion = preferredRegion;
     }
 
-    public String getPreferredCar()
+    public String getPreferredCarType()
     {
-        return preferredCar;
+        return preferredCarType;
     }
 
-    public void setPreferredCar(String preferredCar)
+    public void setPreferredCarType(String preferredCarType)
     {
-        this.preferredCar = preferredCar;
+        this.preferredCarType = preferredCarType;
     }
 
     public String getPreferredHousing()
@@ -210,5 +213,21 @@ public class StudentInformation
 
     public void emptyStudentLoans(){
         this.studentLoans.clear();
+    }
+
+    public String getPreferredCarQuality() {
+        return preferredCarQuality;
+    }
+
+    public void setPreferredCarQuality(String preferredCarQuality) {
+        this.preferredCarQuality = preferredCarQuality;
+    }
+
+    public int getCarInterestRate() {
+        return carInterestRate;
+    }
+
+    public void setCarInterestRate(int carInterestRate) {
+        this.carInterestRate = carInterestRate;
     }
 }
