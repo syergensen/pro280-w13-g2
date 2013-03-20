@@ -27,4 +27,25 @@ public class PostGraduationCarManager {
         TypedQuery<PostGraduationCar> allCarOptionsQuery = em.createNamedQuery(PostGraduationCar.ALL_CAR_OPTIONS_QUERY, PostGraduationCar.class);
         return allCarOptionsQuery.getResultList();
     }
+
+    public PostGraduationCar getCarOption(String type, String quality){
+
+        TypedQuery<PostGraduationCar> carPriceQuery = em.createNamedQuery(PostGraduationCar.GET_PRICE_AND_FUEL_COST_QUERY, PostGraduationCar.class);
+        carPriceQuery.setParameter("carType", type);
+        carPriceQuery.setParameter("carQuality", quality);
+        PostGraduationCar car = carPriceQuery.getSingleResult();
+        return car;
+    }
+
+    public int getCarPrice(String type, String quality){
+
+        PostGraduationCar carOption = getCarOption(type, quality);
+        return carOption.getPrice();
+    }
+
+    public int getCarFuelCost (String type, String quality){
+
+        PostGraduationCar carOption = getCarOption(type, quality);
+        return  carOption.getFuelCost();
+    }
 }

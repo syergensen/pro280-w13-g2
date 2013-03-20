@@ -21,6 +21,6 @@ public class AddAQuarterServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath() + "/PostGraduation");
+        response.sendRedirect(request.getContextPath() + "/Results");
     }
 }
