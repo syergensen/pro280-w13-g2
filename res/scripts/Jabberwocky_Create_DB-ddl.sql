@@ -1,5 +1,3 @@
-USE pro280g3;
-
 DROP TABLE IF EXISTS student_information;
 DROP TABLE IF EXISTS student_results;
 DROP TABLE IF EXISTS start_options;
@@ -18,7 +16,7 @@ CREATE TABLE start_options
 (
 	terms_of_service_id INT AUTO_INCREMENT PRIMARY KEY,
 	term_of_service TEXT NOT NULL,
-  add_date DATETIME NOT NULL
+	add_date DATETIME NOT NULL
 );
 
 
@@ -30,7 +28,8 @@ CREATE TABLE quarter_options
 
 CREATE TABLE program_options
 (
-	program_name NVARCHAR(12) PRIMARY KEY
+	program_name NVARCHAR(12) PRIMARY KEY,
+	starting_salary INT NOT NULL 
 );
 
 CREATE TABLE current_housing_options
@@ -40,17 +39,24 @@ CREATE TABLE current_housing_options
 
 CREATE TABLE region_options
 (
-	region_name NVARCHAR(30) PRIMARY KEY
+	region_name NVARCHAR(30) PRIMARY KEY,
+	median_gross_rent INT NOT NULL,
+	median_housing_costs INT NOT NULL	
 );
 
 CREATE TABLE car_options
 (
-    car_option NVARCHAR(50) PRIMARY KEY
+	car_option_id INT AUTO_INCREMENT PRIMARY KEY,
+    car_type NVARCHAR(50) NOT NULL,
+	car_quality NVARCHAR(50) NOT NULL,
+	price INT,
+	fuel_cost INT
 );
 
 CREATE TABLE post_grad_housing_options
 (
-	housing_option NVARCHAR(50) PRIMARY KEY
+	housing_option NVARCHAR(50) PRIMARY KEY,
+	cost INT
 );
 
 CREATE TABLE student_information
@@ -66,10 +72,10 @@ CREATE TABLE student_information
     credit_card_debt DECIMAL(13, 2),
     medical_debt DECIMAL(13, 2),
     other_loan_debt DECIMAL(13, 2),
-	  current_housing NVARCHAR(30) NOT NULL,
-	  amount_spent_on_lunch_out_weekly DECIMAL(13,2) NOT NULL,
-	  amount_spent_on_dinner_out_weekly DECIMAL(13,2) NOT NULL,
-	  amount_spent_on_video_games_monthly DECIMAL(13,2) NOT NULL,
+	current_housing NVARCHAR(30) NOT NULL,
+	amount_spent_on_lunch_out_weekly DECIMAL(13,2) NOT NULL,
+	amount_spent_on_dinner_out_weekly DECIMAL(13,2) NOT NULL,
+	amount_spent_on_video_games_monthly DECIMAL(13,2) NOT NULL,
     preferred_region NVARCHAR(30) NOT NULL,
     preferred_car NVARCHAR(50) NOT NULL,
     preferred_housing NVARCHAR(50) NOT NULL,
@@ -129,11 +135,6 @@ FOREIGN KEY (preferred_region)
 REFERENCES region_options(region_name);
 
 ALTER TABLE student_information
-ADD CONSTRAINT preferred_car_fk
-FOREIGN KEY (preferred_car)
-REFERENCES car_options(car_option);
-
-ALTER TABLE student_information
 ADD CONSTRAINT preferred_housing_fk
 FOREIGN KEY (preferred_housing)
 REFERENCES post_grad_housing_options(housing_option);
@@ -152,11 +153,6 @@ ALTER TABLE users_groups
 ADD CONSTRAINT fk_users_groups_group_id
 FOREIGN KEY (group_id) 
 REFERENCES groups (group_id);
-
-CREATE VIEW vlogin AS
-SELECT u.name AS username, u.password AS password, g.name AS groupname
-FROM users u JOIN users_groups ug ON u.user_id = ug.user_id
-JOIN groups g ON ug.group_id = g.group_id;
 
 INSERT INTO start_options (term_of_service, add_date)
 VALUES 
@@ -186,23 +182,20 @@ VALUES('Spring');
 INSERT INTO quarter_options (quarter_name)
 VALUES('Summer');
 
-INSERT INTO program_options (program_name)
-VALUES('BSCS');
+INSERT INTO program_options (program_name, starting_salary)
+VALUES('BSCS', 70946);
 
-INSERT INTO program_options (program_name)
-VALUES('BTOM (BSTM)');
+INSERT INTO program_options (program_name, starting_salary)
+VALUES('BTOM (BSTM)', 88179);
 
-INSERT INTO program_options (program_name)
-VALUES('BSGD');
+INSERT INTO program_options (program_name, starting_salary)
+VALUES('BSGD', 74664);
 
-INSERT INTO program_options (program_name)
-VALUES('BSWD');
+INSERT INTO program_options (program_name, starting_salary)
+VALUES('BSWD', 74196);
 
-INSERT INTO program_options (program_name)
-VALUES('BSIS');
-
-INSERT INTO current_housing_options (housing_option)
-VALUES('Neumont University housing');
+INSERT INTO current_housing_options (housing_option, cost)
+VALUES('Neumont University housing', 1400);
 
 INSERT INTO current_housing_options (housing_option)
 VALUES('Lives with family or friends for free');
@@ -210,32 +203,44 @@ VALUES('Lives with family or friends for free');
 INSERT INTO current_housing_options (housing_option)
 VALUES('Renting an apartment or similar'); 
 
-INSERT INTO region_options (region_name)
-VALUES('New England');
+INSERT INTO region_options (region_name, median_gross_rent, median_housing_costs)
+VALUES('New England', 893, 1160);
 
-INSERT INTO region_options (region_name)
-VALUES('Mid-Atlantic');
+INSERT INTO region_options (region_name, median_gross_rent, median_housing_costs)
+VALUES('Mid-Atlantic', 948, 1130);
 
-INSERT INTO region_options (region_name)
-VALUES('Southeast');
+INSERT INTO region_options (region_name, median_gross_rent, median_housing_costs)
+VALUES('Southeast', 726, 913);
 
-INSERT INTO region_options (region_name)
-VALUES('Midwest');
+INSERT INTO region_options (region_name, median_gross_rent, median_housing_costs)
+VALUES('Midwest', 682, 828);
 
-INSERT INTO region_options (region_name)
-VALUES('Mountain-plains');
+INSERT INTO region_options (region_name, median_gross_rent, median_housing_costs)
+VALUES('Mountain-plains', 694, 867);
 
-INSERT INTO region_options (region_name)
-VALUES('West');
+INSERT INTO region_options (region_name, median_gross_rent, median_housing_costs)
+VALUES('West', 976, 1167);
 
-INSERT INTO car_options (car_option)
-VALUES('New car');
+INSERT INTO car_options (car_type, car_quality, price, fuel_cost)
+VALUES('New car', 'High end', 70000, 155);
 
-INSERT INTO car_options (car_option)
-VALUES('Used car');
+INSERT INTO car_options (car_type, car_quality, price, fuel_cost)
+VALUES('New car', 'Middle', 25000, 209);
 
-INSERT INTO car_options (car_option)
-VALUES('Transit');
+INSERT INTO car_options (car_type, car_quality, price, fuel_cost)
+VALUES('New car', 'Low end', 15000, 411);
+
+INSERT INTO car_options (car_type, car_quality, price, fuel_cost)
+VALUES('Used car', 'High end', 40000, 155);
+
+INSERT INTO car_options (car_type, car_quality, price, fuel_cost)
+VALUES('Used car', 'Middle', 12000, 209);
+
+INSERT INTO car_options (car_type, car_quality, price, fuel_cost)
+VALUES('Used car', 'Low end', 5000, 411);
+
+INSERT INTO car_options (car_type, car_quality)
+VALUES('Transit', 'Transit');
 
 INSERT INTO post_grad_housing_options (housing_option)
 VALUES ('Own');
