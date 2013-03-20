@@ -28,7 +28,12 @@ public class ProgramManager {
         return ProgramQuery.getResultList();
     }
 
-//    public Integer getStartingSalary(){
-//
-//    }
+    public Integer getStartingSalary(String program){
+        TypedQuery<Program> ProgramQuery = em.createQuery("SELECT p from Program p WHERE p.programName = :selectedProgram", Program.class);
+        ProgramQuery.setParameter("selectedProgram", program);
+        List<Program> programList = ProgramQuery.getResultList();
+        if(programList != null && programList.size() != 0)
+            return programList.get(0).getStartingSalary();
+        return null;
+    }
 }
