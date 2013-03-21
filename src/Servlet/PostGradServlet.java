@@ -5,6 +5,7 @@ import Entity.StudentResults;
 import EntityManager.PostGraduationCarManager;
 import EntityManager.PostGraduationHousingManager;
 import EntityManager.PostGraduationRegionManager;
+import Helper.Loan;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -59,7 +61,24 @@ public class PostGradServlet extends HttpServlet {
         StudentResults results = new StudentResults();
 
         results.setUserName(currentUser.getUserName());
+
+        List<Loan> extraLoans = currentUser.getStudentLoans();
+        int totalExtraLoansAmt = 0;
+        int totalExtraLoanMonthly = 0;
+        for(Loan loan:extraLoans){
+            totalExtraLoansAmt += loan.getLoanAmount();
+            totalExtraLoanMonthly += loan.getMonthlyPayment();
+        }
+
+        results.setMonthlySalary(currentUser.getSalaryAmount());
+        results.setMonthlyFedTax(currentUser.getSalaryAmount());
+        results.setSchoolLoanAmt(currentUser.getQuarterAmount(), currentUser.getExtraPartTime());
+        results.setSchoolLoanMonthPay();
+        results.setOtherLoans(totalExtraLoansAmt);
         results.setCarPayment(getMonthlyCarCost(currentUser.getPreferredCarType(), currentUser.getPreferredCarQuality(), carInterestRate));
+        /*
+            Get mortgages and such same way as car
+         */
 
         response.sendRedirect(request.getContextPath() + "/Results");
     }

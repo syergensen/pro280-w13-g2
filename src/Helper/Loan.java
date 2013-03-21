@@ -13,15 +13,13 @@ public class Loan {
         Gets/Sets
      */
     int loanAmount;
-    int interest;
-    int interestAmount;
+    double interest;
     int monthlyPayment;
 
-    public Loan(int loanAmt, int interestPercent, int monthlyPayment){
+    public Loan(int loanAmt, int interestPercent){
         this.loanAmount = loanAmt;
         this.interest = interestPercent;
-        this.monthlyPayment = monthlyPayment;
-        calculateInterest(interestPercent, loanAmt);
+        setMonthlyPayment();
     }
 
     public int getLoanAmount() {
@@ -32,25 +30,25 @@ public class Loan {
         this.loanAmount = loanAmount;
     }
 
-    public int getInterest() {
+    public double getInterest() {
         return interest;
     }
 
     public void setInterest(int interest) {
-        this.interest = interest;
+        this.interest = interest/100;
     }
 
     public int getMonthlyPayment() {
         return monthlyPayment;
     }
 
-    public void setMonthlyPayment(int monthlyPayment) {
-        this.monthlyPayment = monthlyPayment;
-    }
-
-    private void calculateInterest(int interestPercentage, int amount){
-        double percentage = interestPercentage / 100;
-        double temp =  amount * percentage;
-        interestAmount = (int) temp;
+    private void setMonthlyPayment() {
+        double monthlyInterest = interest/12;
+        double temp = 1 + monthlyInterest;
+        double calculatedNum = Math.pow(temp, -120);
+        double oppositeCalNum = 1 - calculatedNum;
+        double payment = loanAmount * monthlyInterest;
+        double monthlyPayment = (payment / oppositeCalNum);
+        this.monthlyPayment = (int) monthlyPayment;
     }
 }

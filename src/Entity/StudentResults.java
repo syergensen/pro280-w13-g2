@@ -11,13 +11,11 @@ public class StudentResults
 {
     public String userName;
 
-    public int salary;
+    public int monthlySalary;
 
-    public int fedTax;
+    public int monthlyFedTax;
 
-    public int healthInsurance;
-
-    public int miscInsurance;
+    public double fedTaxPercent = .0565;
 
     public int carPayment;
 
@@ -27,28 +25,38 @@ public class StudentResults
 
     public int utilities;
 
-    public int totalLoans;
+    public int schoolLoanAmt;
 
-    public int loanMonthly;
+    public int otherLoans;
+
+    public int schoolLoanMonthPay;
 
     public int outOfPocket;
 
     private int quarterTuition = 7200;
     private int interest = 6;
 
-    public int getTotalLoans()
-    {
-        return totalLoans;
+    public int getSchoolLoanAmt() {
+        return schoolLoanAmt;
     }
 
-    public void setTotalLoans(int fullQtr, int partQtr, int additionalLoan)
-    {
-        this.totalLoans = (quarterTuition * fullQtr) + ((quarterTuition/2) * partQtr) + additionalLoan;
+    public void setSchoolLoanAmt(int fullQtr, int partQtr) {
+        this.schoolLoanAmt =  (quarterTuition * fullQtr) + ((quarterTuition/2) * partQtr);
     }
 
-    public int getLoanMonthly()
+    public int getOtherLoans()
     {
-        return loanMonthly;
+        return otherLoans;
+    }
+
+    public void setOtherLoans(int additionalLoanAmt)
+    {
+        this.otherLoans = additionalLoanAmt;
+    }
+
+    public int getSchoolLoanMonthPay()
+    {
+        return schoolLoanMonthPay;
     }
 
     /*
@@ -67,16 +75,16 @@ public class StudentResults
 
         someNum / .4503672 = monthlyPayment + additionalLoanMonthlyPayment
      */
-    //Call after totalloans is calculated, and totalloan in
-    public void setLoanMonthly(int loanAmt, int additionalMonthlyPayment)
+    //Call after setSchoolLoanAmt
+    public void setSchoolLoanMonthPay()
     {
         double monthlyInterest = (interest/100)/12;
         double temp = 1 + monthlyInterest;
         double calculatedNum = Math.pow(temp, -120);
         double oppositeCalNum = 1 - calculatedNum;
-        double payment = loanAmt * monthlyInterest;
+        double payment = schoolLoanAmt * monthlyInterest;
         double monthlyPayment = (payment / oppositeCalNum);
-        loanMonthly = ((int) monthlyPayment + additionalMonthlyPayment);
+        schoolLoanMonthPay = (int) monthlyPayment;
     }
 
     public String getUserName()
@@ -89,44 +97,37 @@ public class StudentResults
         this.userName = userName;
     }
 
-    public int getSalary()
+    public int getMonthlySalarySalary()
     {
-        return salary;
+        return monthlySalary;
+    }
+    //From StudentInformation
+    public void setMonthlySalary(int salary)
+    {
+        int temp = salary;
+        this.monthlySalary = salary/12;
     }
 
-    public void setSalary(int salary)
+    public int getMonthlyFedTax()
     {
-        this.salary = salary;
+
+        return monthlyFedTax;
     }
 
-    public int getFedTax()
+    public void setMonthlyFedTax(int salaryAmt)
     {
-        return fedTax;
+        int temp = salaryAmt/12;
+        double monthlyFedTax = temp * fedTaxPercent;
+        this.monthlyFedTax = (int) monthlyFedTax;
     }
 
-    public void setFedTax(int fedTax)
-    {
-        this.fedTax = fedTax;
+    public double getFedTaxPercent() {
+        return fedTaxPercent;
     }
 
-    public int getHealthInsurance()
-    {
-        return healthInsurance;
-    }
-
-    public void setHealthInsurance(int healthInsurance)
-    {
-        this.healthInsurance = healthInsurance;
-    }
-
-    public int getMiscInsurance()
-    {
-        return miscInsurance;
-    }
-
-    public void setMiscInsurance(int miscInsurance)
-    {
-        this.miscInsurance = miscInsurance;
+    public void setFedTaxPercent(double fedTaxPercent) {
+        double temp = fedTaxPercent/100;
+        this.fedTaxPercent = temp;
     }
 
     public int getCarPayment()

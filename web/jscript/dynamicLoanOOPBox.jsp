@@ -13,9 +13,8 @@
 
             newTextBoxDiv.after().html(
                     'Loan Amount:'+'<input type="number" name="loanAmount" id="loanAmount" value="0"/> ' +
-                            'Loan Interest:'+'<input type="number" name="loanInterest" id="loanInterest" value="0"/> ' +
-                            'Monthly Payment:'+'<input type="number" name="monthlyPayment" id="monthlyPayment" value="0">'+"</br>");
-
+                            'Loan Interest:'+'<input type="number" name="loanInterest" id="loanInterest" value="0"/> '+"</br>");
+//                    +'Monthly Payment:'+'<input type="number" name="monthlyPayment" id="monthlyPayment" value="0">'+
             newTextBoxDiv.appendTo("#loanInfoContainer");
 
             loanCounter++;

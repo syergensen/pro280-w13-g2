@@ -44,8 +44,8 @@
                     <div id="loanInfoContainer">
                         <div id="loanInfo1">
                             Loan Amount:<input type="number" id="loanAmount" name="loanAmount" value="0" min="0" onkeypress="return isNumberEntry(event)"/>
-                            Loan Interest:<input type="number" id="loanInterest" name="loanInterest" value="0" min="0" onkeypress="return isNumberEntry(event)"/>
-                            Monthly Payment:<input type="number" id="monthlyPayment" name="monthlyPayment" value="0" min="0" onkeypress="return isNumberEntry(event)"/></br>
+                            Loan Interest:<input type="number" id="loanInterest" name="loanInterest" value="0" min="0" onkeypress="return isNumberEntry(event)"/></br>
+                            <%--Monthly Payment:<input type="number" id="monthlyPayment" name="monthlyPayment" value="0" min="0" onkeypress="return isNumberEntry(event)"/>--%>
                         </div>
                     </div>
                     <input type="button" value="Add Loan"id="addLoanButton"/>

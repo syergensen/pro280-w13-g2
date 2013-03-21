@@ -27,4 +27,6 @@ public class PostGraduationRegionManager {
         TypedQuery<PostGraduationRegion> allRegionsQuery = em.createNamedQuery(PostGraduationRegion.ALL_REGIONS_QUERY, PostGraduationRegion.class);
         return allRegionsQuery.getResultList();
     }
+    //Will need to create methods to extract data from the table.
+
 }

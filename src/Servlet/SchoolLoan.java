@@ -30,7 +30,7 @@ public class SchoolLoan extends HttpServlet{
 
         String[] loanAmounts = request.getParameterValues("loanAmount");
         String[] loanInterests = request.getParameterValues("loanInterest");
-        String[] monthlyPayments = request.getParameterValues("monthlyPayment");
+//        String[] monthlyPayments = request.getParameterValues("monthlyPayment");
 
         int ooPAmount = Integer.valueOf(request.getParameter("oOPAmount"));
 
@@ -48,8 +48,8 @@ public class SchoolLoan extends HttpServlet{
             for(int i = 0; i < loanNumbers; i++){
                 int loanAmount = Integer.valueOf(loanAmounts[i]);
                 int loanInterest = Integer.valueOf(loanInterests[i]);
-                int monthlyPayment = Integer.valueOf(monthlyPayments[i]);
-                Loan loan = new Loan(loanAmount, loanInterest, monthlyPayment);
+//                int monthlyPayment = Integer.valueOf(monthlyPayments[i]);
+                Loan loan = new Loan(loanAmount, loanInterest);
                 curUser.getStudentLoans().add(loan);
             }
         }

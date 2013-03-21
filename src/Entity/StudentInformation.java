@@ -21,6 +21,8 @@ public class StudentInformation
 
     private String program;
 
+    private int salaryAmount;
+
     private int quarterAmount;
 
     private int extraPartTime;
@@ -77,6 +79,14 @@ public class StudentInformation
     public void setEnrollQuarter(String enrollQuarter)
     {
         this.enrollQuarter = enrollQuarter;
+    }
+
+    public int getSalaryAmount() {
+        return salaryAmount;
+    }
+
+    public void setSalaryAmount(int salaryAmount) {
+        this.salaryAmount = salaryAmount;
     }
 
     public String getProgram()
